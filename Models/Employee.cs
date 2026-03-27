@@ -25,12 +25,29 @@
             this._identityCard = string.Empty;
             this._name = string.Empty;
             this._surname = string.Empty;
-            this._birthDate = new System.DateOnly();
+            this._birthDate = DateOnly.FromDateTime(System.DateTime.Now);//Tomar la fecha actual como valor por defecto
             this._maritalStatus = string.Empty;
-            this._numberChildren = 18;
+            this._numberChildren = 0;
             this._email = string.Empty;
             this._phone = string.Empty;
             this._address = string.Empty;
+        }
+
+        //Definir un constructor con parámetros para facilitar la creación de objetos Employee, por ejemplo:
+        public Employee(string name, string surname, string identityCard, string address, 
+            System.DateOnly birthDate, string maritalStatus, 
+            int numberChildren, string email, string phone, bool status)
+        {
+            _name = name;
+            _surname = surname;
+            _identityCard = identityCard;
+            _address = address;
+            _birthDate = birthDate;
+            _maritalStatus = maritalStatus;
+            _numberChildren = numberChildren;
+            _email = email;
+            _phone = phone;
+            _status = status;
         }
 
         /* ---------------------------------------------------------------- */
@@ -38,7 +55,7 @@
         /* -----------------------------------------------------------------*/
         public string Address
         {
-            get => default;
+            get => _address;
             set
             {
                 //Validar el valor de la dirección, por ejemplo:
@@ -52,7 +69,7 @@
 
         public System.DateOnly BirthDate
         {
-            get => default;
+            get => _birthDate;
             set
             {
             }
@@ -60,7 +77,7 @@
 
         public string Email
         {
-            get => default;
+            get => Email;
             set
             {
                 //Validar el formato del correo electrónico, por ejemplo:
@@ -74,7 +91,7 @@
 
         public string IdentityCard
         {
-            get => default;
+            get => _identityCard;
             set
             {
             }
@@ -82,7 +99,7 @@
 
         public string MaritalStatus
         {
-            get => default;
+            get => _maritalStatus;
             set
             {
             }
@@ -90,7 +107,7 @@
 
         public string Name
         {
-            get => default;
+            get => _name;
             set
             {
             }
@@ -98,15 +115,15 @@
 
         public string Phone
         {
-            get => default;
+            get => _phone;
             set
             {
             }
         }
 
-        public int Surname
+        public string Surname
         {
-            get => default;
+            get => _surname;
             set
             {
             }
@@ -128,20 +145,20 @@
             }
         }
 
-        /// <summary>
-        /// Agrega una nueva instancia de Employee a la base de datos o colección correspondiente.
-        /// </summary>
-        /// <returns>true si la operación fue exitosa, o false en caso contrario</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
+
         public bool AddEmployee()
         {
-            // Implementar la lógica para agregar un nuevo empleado, por ejemplo:
-             if (string.IsNullOrEmpty(IdentityCard))
-                return false;
+            //Implementar la lógica para agregar un nuevo empleado a la base de datos o a una colección, por ejemplo:
+            var newEmployee = new List<Employee>(); //Crear una nueva lista de empleados
+            newEmployee.Add(this);
 
-             MessageBox.Show($"Empleado {Name} {Surname} agregado exitosamente.");
+            if (newEmployee.Count > 0)
+            
+                {
+                    return true; //Empleado agregado exitosamente
+                }//End if
 
-            return true; // Retornar true si la operación fue exitosa, o false en caso contrario
+                return false;   //No se pudo agregar el empleado
         }
 
         public bool TerminateEmployee(string id)
