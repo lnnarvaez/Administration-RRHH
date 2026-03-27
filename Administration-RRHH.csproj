@@ -9,4 +9,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Services\" />
+    <Folder Include="UI\Dashboard\" />
+    <Folder Include="UI\Reports\" />
+    <Folder Include="UI\Process\" />
+  </ItemGroup>
+
 </Project>
