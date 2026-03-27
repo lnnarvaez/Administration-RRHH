@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Administration_RRHH
+namespace Administration_RRHH.Models
 {
-    public class Recruitment
+    public class Department
     {
     }
 }
