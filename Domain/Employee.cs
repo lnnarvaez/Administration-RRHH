@@ -1,4 +1,4 @@
-﻿namespace Administration_RRHH
+﻿namespace Administration_RRHH.Domain
 {
     public class Employee
     {
