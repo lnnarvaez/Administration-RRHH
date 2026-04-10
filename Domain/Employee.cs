@@ -20,9 +20,10 @@
 
         public string Address
         {
-            get => default;
+            get => _address;
             set
             {
+                _address = value;
             }
         }
 
@@ -36,7 +37,7 @@
 
         public string Email
         {
-            get => default;
+            get => _email;
             set
             {
             }
@@ -44,7 +45,7 @@
 
         public string IdentityCard
         {
-            get => default;
+            get => _email;
             set
             {
             }
@@ -52,7 +53,7 @@
 
         public string MaritalStatus
         {
-            get => default;
+            get => _email;
             set
             {
             }
@@ -60,7 +61,7 @@
 
         public string Name
         {
-            get => default;
+            get => _email;
             set
             {
             }
@@ -68,7 +69,7 @@
 
         public string Phone
         {
-            get => default;
+            get => _email;
             set
             {
             }
@@ -100,8 +101,15 @@
 
         public bool AddEmployee()
         {
-            throw new System.NotImplementedException();
-        }
+            var lst = new List<Employee>();
+
+            lst.Add(this);  // Agrega el empleado actual a la lista
+
+            if (lst.Count > 0)
+                return true; // Retorna true si se agregó el empleado a la lista
+
+            return false;   // Retorna false si no se agregó el empleado a la lista
+        }//End AddEmployee
 
         public bool TerminateEmployee(string id)
         {
