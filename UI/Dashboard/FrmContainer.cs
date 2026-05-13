@@ -46,7 +46,6 @@
                 pnlCatalogSubMenu.Visible = false;
             }
 
-
             if (pnlSubMenuEmployee.Visible == true)
                 pnlSubMenuEmployee.Visible = false;
 
@@ -242,7 +241,7 @@
 
         private void FrmContainer_Load(object sender, EventArgs e)
         {
-            //OpenChildForm(new AuthenticationForm());
+            OpenChildForm(new AuthenticationForm());
         }
 
         private void btnSideBarMenu_Click(object sender, EventArgs e)
