@@ -21,5 +21,10 @@ namespace Administration_RRHH.UI
         {
 
         }
+
+        private void btnLogOn_Click(object sender, EventArgs e)
+        {
+            this.Dispose(); // Cierra el formulario de autenticación
+        }
     }
 }

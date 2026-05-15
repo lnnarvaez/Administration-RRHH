@@ -257,5 +257,10 @@
                 lblItems.Visible = true; // Muestra el texto de los ítems del menú
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose(); //Cierra el formulario actual y libera los recursos asociados
+        }
     }//end class
 } //end namespace
