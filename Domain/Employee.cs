@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Administration_RRHH.Domain
 {
-    public class Employee
+    public class Employee: Individual
     {
         /* --------------------------------------------------------------------- */
         /*                      Campos / Atributos                               */                
