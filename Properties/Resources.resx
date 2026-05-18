@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="catalog_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\catalog_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrow_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo-syst" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo-syst.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,8 +127,8 @@
   <data name="user_nav" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_nav.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="catalog_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\catalog_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="catalog_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\catalog_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo-apps-min" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo-apps-min.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,13 +136,19 @@
   <data name="menu_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="catalog_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\catalog_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_blue1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu_blue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="catalog_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\catalog_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exit_f5f5f5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit_f5f5f5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -103,6 +103,16 @@ namespace Administration_RRHH.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit_f5f5f5 {
+            get {
+                object obj = ResourceManager.GetObject("exit_f5f5f5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_apps_min {
             get {
                 object obj = ResourceManager.GetObject("Logo-apps-min", resourceCulture);
@@ -126,6 +136,16 @@ namespace Administration_RRHH.Properties {
         internal static System.Drawing.Bitmap menu_blue {
             get {
                 object obj = ResourceManager.GetObject("menu_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_blue1 {
+            get {
+                object obj = ResourceManager.GetObject("menu_blue1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

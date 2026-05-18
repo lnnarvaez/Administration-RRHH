@@ -29,67 +29,83 @@
         private void InitializeComponent()
         {
             pnlHeaderTop = new Panel();
+            btnMenuSideBar = new Button();
             label2 = new Label();
             pictureBox4 = new PictureBox();
             lblUserConnect = new Label();
             pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
             pnlSideBarLeft = new Panel();
-            button10 = new Button();
-            panel5 = new Panel();
-            button17 = new Button();
-            button18 = new Button();
-            button19 = new Button();
-            button16 = new Button();
-            panel4 = new Panel();
-            button14 = new Button();
-            button15 = new Button();
-            button6 = new Button();
-            panel3 = new Panel();
-            button11 = new Button();
-            button12 = new Button();
-            button9 = new Button();
-            panel2 = new Panel();
-            button7 = new Button();
-            button8 = new Button();
-            button5 = new Button();
-            panel1 = new Panel();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnAdmin = new Button();
+            pnlSubMenuReport = new Panel();
+            btnReport3 = new Button();
+            btnReport2 = new Button();
+            btnReport1 = new Button();
+            btnReport = new Button();
+            pnlSubMenuPayroll = new Panel();
+            btnPaysip = new Button();
+            btnProccessPayroll = new Button();
+            btnPayroll = new Button();
+            pnlSubMenuContracts = new Panel();
+            btnPromotion = new Button();
+            btnContract = new Button();
+            btnContracts = new Button();
+            pnlSubMenuEmployee = new Panel();
+            btnManagerEmployee = new Button();
+            btnRegisterEmployee = new Button();
+            btnEmployee = new Button();
+            pnlSubMenuCatalog = new Panel();
+            btnJobTitle = new Button();
+            btnMunicipality = new Button();
+            btnDepartment = new Button();
+            btnCatalog = new Button();
             pnlTitleNav = new Panel();
             pictureBox3 = new PictureBox();
             label1 = new Label();
             pnlBreadcrums = new Panel();
+            btnExit = new Button();
+            lblItems = new Label();
+            lblMenu = new Label();
+            lblHome = new Label();
+            pnlContainer = new Panel();
             pnlHeaderTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlSideBarLeft.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
-            panel3.SuspendLayout();
-            panel2.SuspendLayout();
-            panel1.SuspendLayout();
+            pnlSubMenuReport.SuspendLayout();
+            pnlSubMenuPayroll.SuspendLayout();
+            pnlSubMenuContracts.SuspendLayout();
+            pnlSubMenuEmployee.SuspendLayout();
+            pnlSubMenuCatalog.SuspendLayout();
             pnlTitleNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            pnlBreadcrums.SuspendLayout();
             SuspendLayout();
             // 
             // pnlHeaderTop
             // 
             pnlHeaderTop.BackColor = Color.FromArgb(74, 76, 88);
+            pnlHeaderTop.Controls.Add(btnMenuSideBar);
             pnlHeaderTop.Controls.Add(label2);
             pnlHeaderTop.Controls.Add(pictureBox4);
             pnlHeaderTop.Controls.Add(lblUserConnect);
             pnlHeaderTop.Controls.Add(pictureBox2);
-            pnlHeaderTop.Controls.Add(pictureBox1);
             pnlHeaderTop.Dock = DockStyle.Top;
             pnlHeaderTop.Location = new Point(0, 0);
-            pnlHeaderTop.Margin = new Padding(2, 2, 2, 2);
+            pnlHeaderTop.Margin = new Padding(2);
             pnlHeaderTop.Name = "pnlHeaderTop";
-            pnlHeaderTop.Size = new Size(1112, 64);
+            pnlHeaderTop.Size = new Size(1223, 64);
             pnlHeaderTop.TabIndex = 0;
+            // 
+            // btnMenuSideBar
+            // 
+            btnMenuSideBar.Cursor = Cursors.Hand;
+            btnMenuSideBar.FlatAppearance.BorderSize = 0;
+            btnMenuSideBar.Image = Properties.Resources.menu_blue1;
+            btnMenuSideBar.Location = new Point(20, 6);
+            btnMenuSideBar.Name = "btnMenuSideBar";
+            btnMenuSideBar.Size = new Size(48, 48);
+            btnMenuSideBar.TabIndex = 5;
+            btnMenuSideBar.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -99,7 +115,7 @@
             label2.Location = new Point(213, 16);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(394, 30);
+            label2.Size = new Size(504, 38);
             label2.TabIndex = 4;
             label2.Text = "Sistema de Gestión de Talento Humano";
             // 
@@ -107,7 +123,7 @@
             // 
             pictureBox4.Image = Properties.Resources.Logo_apps_min;
             pictureBox4.Location = new Point(98, 4);
-            pictureBox4.Margin = new Padding(2, 2, 2, 2);
+            pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(100, 54);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -120,10 +136,10 @@
             lblUserConnect.AutoSize = true;
             lblUserConnect.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUserConnect.ForeColor = Color.FromArgb(251, 251, 251);
-            lblUserConnect.Location = new Point(1013, 23);
-            lblUserConnect.Margin = new Padding(2, 0, 2, 0);
+            lblUserConnect.Location = new Point(1073, 25);
+            lblUserConnect.Margin = new Padding(40, 0, 2, 0);
             lblUserConnect.Name = "lblUserConnect";
-            lblUserConnect.Size = new Size(88, 19);
+            lblUserConnect.Size = new Size(107, 23);
             lblUserConnect.TabIndex = 2;
             lblUserConnect.Text = "José Morales";
             // 
@@ -131,445 +147,439 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = Properties.Resources.user_orange;
-            pictureBox2.Location = new Point(967, 9);
-            pictureBox2.Margin = new Padding(2, 2, 2, 2);
+            pictureBox2.Location = new Point(1020, 9);
+            pictureBox2.Margin = new Padding(4, 2, 2, 2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(38, 51);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.menu_blue;
-            pictureBox1.Location = new Point(9, 10);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(38, 38);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // pnlSideBarLeft
             // 
             pnlSideBarLeft.AutoScroll = true;
             pnlSideBarLeft.BackColor = Color.FromArgb(85, 87, 98);
-            pnlSideBarLeft.Controls.Add(button10);
-            pnlSideBarLeft.Controls.Add(panel5);
-            pnlSideBarLeft.Controls.Add(button16);
-            pnlSideBarLeft.Controls.Add(panel4);
-            pnlSideBarLeft.Controls.Add(button6);
-            pnlSideBarLeft.Controls.Add(panel3);
-            pnlSideBarLeft.Controls.Add(button9);
-            pnlSideBarLeft.Controls.Add(panel2);
-            pnlSideBarLeft.Controls.Add(button5);
-            pnlSideBarLeft.Controls.Add(panel1);
-            pnlSideBarLeft.Controls.Add(button1);
+            pnlSideBarLeft.Controls.Add(btnAdmin);
+            pnlSideBarLeft.Controls.Add(pnlSubMenuReport);
+            pnlSideBarLeft.Controls.Add(btnReport);
+            pnlSideBarLeft.Controls.Add(pnlSubMenuPayroll);
+            pnlSideBarLeft.Controls.Add(btnPayroll);
+            pnlSideBarLeft.Controls.Add(pnlSubMenuContracts);
+            pnlSideBarLeft.Controls.Add(btnContracts);
+            pnlSideBarLeft.Controls.Add(pnlSubMenuEmployee);
+            pnlSideBarLeft.Controls.Add(btnEmployee);
+            pnlSideBarLeft.Controls.Add(pnlSubMenuCatalog);
+            pnlSideBarLeft.Controls.Add(btnCatalog);
             pnlSideBarLeft.Controls.Add(pnlTitleNav);
             pnlSideBarLeft.Dock = DockStyle.Left;
             pnlSideBarLeft.Location = new Point(0, 64);
-            pnlSideBarLeft.Margin = new Padding(2, 2, 2, 2);
+            pnlSideBarLeft.Margin = new Padding(2);
             pnlSideBarLeft.Name = "pnlSideBarLeft";
             pnlSideBarLeft.Size = new Size(240, 773);
             pnlSideBarLeft.TabIndex = 1;
             // 
-            // button10
+            // btnAdmin
             // 
-            button10.BackColor = Color.FromArgb(58, 61, 73);
-            button10.Dock = DockStyle.Top;
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button10.ForeColor = Color.FromArgb(246, 246, 247);
-            button10.Location = new Point(0, 707);
-            button10.Margin = new Padding(2, 2, 2, 2);
-            button10.Name = "button10";
-            button10.Padding = new Padding(13, 0, 0, 0);
-            button10.Size = new Size(240, 32);
-            button10.TabIndex = 12;
-            button10.Text = "Administrar";
-            button10.TextAlign = ContentAlignment.MiddleLeft;
-            button10.UseVisualStyleBackColor = false;
+            btnAdmin.BackColor = Color.FromArgb(58, 61, 73);
+            btnAdmin.Dock = DockStyle.Top;
+            btnAdmin.FlatAppearance.BorderSize = 0;
+            btnAdmin.FlatStyle = FlatStyle.Flat;
+            btnAdmin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAdmin.ForeColor = Color.FromArgb(246, 246, 247);
+            btnAdmin.Location = new Point(0, 739);
+            btnAdmin.Margin = new Padding(2);
+            btnAdmin.Name = "btnAdmin";
+            btnAdmin.Padding = new Padding(13, 0, 0, 0);
+            btnAdmin.Size = new Size(219, 40);
+            btnAdmin.TabIndex = 12;
+            btnAdmin.Text = "Administrar";
+            btnAdmin.TextAlign = ContentAlignment.MiddleLeft;
+            btnAdmin.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // pnlSubMenuReport
             // 
-            panel5.BackColor = Color.FromArgb(98, 100, 110);
-            panel5.Controls.Add(button17);
-            panel5.Controls.Add(button18);
-            panel5.Controls.Add(button19);
-            panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(0, 599);
-            panel5.Margin = new Padding(2, 2, 2, 2);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(240, 108);
-            panel5.TabIndex = 11;
+            pnlSubMenuReport.BackColor = Color.FromArgb(98, 100, 110);
+            pnlSubMenuReport.Controls.Add(btnReport3);
+            pnlSubMenuReport.Controls.Add(btnReport2);
+            pnlSubMenuReport.Controls.Add(btnReport1);
+            pnlSubMenuReport.Dock = DockStyle.Top;
+            pnlSubMenuReport.Location = new Point(0, 631);
+            pnlSubMenuReport.Margin = new Padding(2);
+            pnlSubMenuReport.Name = "pnlSubMenuReport";
+            pnlSubMenuReport.Size = new Size(219, 108);
+            pnlSubMenuReport.TabIndex = 11;
             // 
-            // button17
+            // btnReport3
             // 
-            button17.Cursor = Cursors.Hand;
-            button17.Dock = DockStyle.Top;
-            button17.FlatAppearance.BorderSize = 0;
-            button17.FlatStyle = FlatStyle.Flat;
-            button17.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button17.ForeColor = Color.FromArgb(246, 246, 247);
-            button17.Location = new Point(0, 64);
-            button17.Margin = new Padding(2, 2, 2, 2);
-            button17.Name = "button17";
-            button17.Padding = new Padding(19, 0, 0, 0);
-            button17.Size = new Size(240, 32);
-            button17.TabIndex = 2;
-            button17.Text = "Reporte 3";
-            button17.TextAlign = ContentAlignment.MiddleLeft;
-            button17.UseVisualStyleBackColor = true;
+            btnReport3.Cursor = Cursors.Hand;
+            btnReport3.Dock = DockStyle.Top;
+            btnReport3.FlatAppearance.BorderSize = 0;
+            btnReport3.FlatStyle = FlatStyle.Flat;
+            btnReport3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReport3.ForeColor = Color.FromArgb(246, 246, 247);
+            btnReport3.Location = new Point(0, 64);
+            btnReport3.Margin = new Padding(2);
+            btnReport3.Name = "btnReport3";
+            btnReport3.Padding = new Padding(19, 0, 0, 0);
+            btnReport3.Size = new Size(219, 32);
+            btnReport3.TabIndex = 2;
+            btnReport3.Text = "Reporte 3";
+            btnReport3.TextAlign = ContentAlignment.MiddleLeft;
+            btnReport3.UseVisualStyleBackColor = true;
             // 
-            // button18
+            // btnReport2
             // 
-            button18.Cursor = Cursors.Hand;
-            button18.Dock = DockStyle.Top;
-            button18.FlatAppearance.BorderSize = 0;
-            button18.FlatStyle = FlatStyle.Flat;
-            button18.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button18.ForeColor = Color.FromArgb(246, 246, 247);
-            button18.Location = new Point(0, 32);
-            button18.Margin = new Padding(2, 2, 2, 2);
-            button18.Name = "button18";
-            button18.Padding = new Padding(19, 0, 0, 0);
-            button18.Size = new Size(240, 32);
-            button18.TabIndex = 1;
-            button18.Text = "Reporte 2";
-            button18.TextAlign = ContentAlignment.MiddleLeft;
-            button18.UseVisualStyleBackColor = true;
+            btnReport2.Cursor = Cursors.Hand;
+            btnReport2.Dock = DockStyle.Top;
+            btnReport2.FlatAppearance.BorderSize = 0;
+            btnReport2.FlatStyle = FlatStyle.Flat;
+            btnReport2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReport2.ForeColor = Color.FromArgb(246, 246, 247);
+            btnReport2.Location = new Point(0, 32);
+            btnReport2.Margin = new Padding(2);
+            btnReport2.Name = "btnReport2";
+            btnReport2.Padding = new Padding(19, 0, 0, 0);
+            btnReport2.Size = new Size(219, 32);
+            btnReport2.TabIndex = 1;
+            btnReport2.Text = "Reporte 2";
+            btnReport2.TextAlign = ContentAlignment.MiddleLeft;
+            btnReport2.UseVisualStyleBackColor = true;
             // 
-            // button19
+            // btnReport1
             // 
-            button19.Cursor = Cursors.Hand;
-            button19.Dock = DockStyle.Top;
-            button19.FlatAppearance.BorderSize = 0;
-            button19.FlatStyle = FlatStyle.Flat;
-            button19.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button19.ForeColor = Color.FromArgb(246, 246, 247);
-            button19.Location = new Point(0, 0);
-            button19.Margin = new Padding(0);
-            button19.Name = "button19";
-            button19.Padding = new Padding(19, 0, 0, 0);
-            button19.Size = new Size(240, 32);
-            button19.TabIndex = 0;
-            button19.Text = "Reporte 1";
-            button19.TextAlign = ContentAlignment.MiddleLeft;
-            button19.UseVisualStyleBackColor = true;
+            btnReport1.Cursor = Cursors.Hand;
+            btnReport1.Dock = DockStyle.Top;
+            btnReport1.FlatAppearance.BorderSize = 0;
+            btnReport1.FlatStyle = FlatStyle.Flat;
+            btnReport1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReport1.ForeColor = Color.FromArgb(246, 246, 247);
+            btnReport1.Location = new Point(0, 0);
+            btnReport1.Margin = new Padding(0);
+            btnReport1.Name = "btnReport1";
+            btnReport1.Padding = new Padding(19, 0, 0, 0);
+            btnReport1.Size = new Size(219, 32);
+            btnReport1.TabIndex = 0;
+            btnReport1.Text = "Reporte 1";
+            btnReport1.TextAlign = ContentAlignment.MiddleLeft;
+            btnReport1.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // btnReport
             // 
-            button16.BackColor = Color.FromArgb(58, 61, 73);
-            button16.Dock = DockStyle.Top;
-            button16.FlatAppearance.BorderSize = 0;
-            button16.FlatStyle = FlatStyle.Flat;
-            button16.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button16.ForeColor = Color.FromArgb(246, 246, 247);
-            button16.Location = new Point(0, 567);
-            button16.Margin = new Padding(2, 2, 2, 2);
-            button16.Name = "button16";
-            button16.Padding = new Padding(13, 0, 0, 0);
-            button16.Size = new Size(240, 32);
-            button16.TabIndex = 10;
-            button16.Text = "Reportes";
-            button16.TextAlign = ContentAlignment.MiddleLeft;
-            button16.UseVisualStyleBackColor = false;
+            btnReport.BackColor = Color.FromArgb(58, 61, 73);
+            btnReport.Dock = DockStyle.Top;
+            btnReport.FlatAppearance.BorderSize = 0;
+            btnReport.FlatStyle = FlatStyle.Flat;
+            btnReport.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReport.ForeColor = Color.FromArgb(246, 246, 247);
+            btnReport.Location = new Point(0, 591);
+            btnReport.Margin = new Padding(2);
+            btnReport.Name = "btnReport";
+            btnReport.Padding = new Padding(13, 0, 0, 0);
+            btnReport.Size = new Size(219, 40);
+            btnReport.TabIndex = 10;
+            btnReport.Text = "Reportes";
+            btnReport.TextAlign = ContentAlignment.MiddleLeft;
+            btnReport.UseVisualStyleBackColor = false;
+            btnReport.Click += btnReport_Click;
             // 
-            // panel4
+            // pnlSubMenuPayroll
             // 
-            panel4.BackColor = Color.FromArgb(98, 100, 110);
-            panel4.Controls.Add(button14);
-            panel4.Controls.Add(button15);
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(0, 486);
-            panel4.Margin = new Padding(2, 2, 2, 2);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(240, 81);
-            panel4.TabIndex = 9;
+            pnlSubMenuPayroll.BackColor = Color.FromArgb(98, 100, 110);
+            pnlSubMenuPayroll.Controls.Add(btnPaysip);
+            pnlSubMenuPayroll.Controls.Add(btnProccessPayroll);
+            pnlSubMenuPayroll.Dock = DockStyle.Top;
+            pnlSubMenuPayroll.Location = new Point(0, 510);
+            pnlSubMenuPayroll.Margin = new Padding(2);
+            pnlSubMenuPayroll.Name = "pnlSubMenuPayroll";
+            pnlSubMenuPayroll.Size = new Size(219, 81);
+            pnlSubMenuPayroll.TabIndex = 9;
             // 
-            // button14
+            // btnPaysip
             // 
-            button14.Cursor = Cursors.Hand;
-            button14.Dock = DockStyle.Top;
-            button14.FlatAppearance.BorderSize = 0;
-            button14.FlatStyle = FlatStyle.Flat;
-            button14.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button14.ForeColor = Color.FromArgb(246, 246, 247);
-            button14.Location = new Point(0, 32);
-            button14.Margin = new Padding(2, 2, 2, 2);
-            button14.Name = "button14";
-            button14.Padding = new Padding(19, 0, 0, 0);
-            button14.Size = new Size(240, 32);
-            button14.TabIndex = 1;
-            button14.Text = "Colilla de Pago";
-            button14.TextAlign = ContentAlignment.MiddleLeft;
-            button14.UseVisualStyleBackColor = true;
+            btnPaysip.Cursor = Cursors.Hand;
+            btnPaysip.Dock = DockStyle.Top;
+            btnPaysip.FlatAppearance.BorderSize = 0;
+            btnPaysip.FlatStyle = FlatStyle.Flat;
+            btnPaysip.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPaysip.ForeColor = Color.FromArgb(246, 246, 247);
+            btnPaysip.Location = new Point(0, 32);
+            btnPaysip.Margin = new Padding(2);
+            btnPaysip.Name = "btnPaysip";
+            btnPaysip.Padding = new Padding(19, 0, 0, 0);
+            btnPaysip.Size = new Size(219, 32);
+            btnPaysip.TabIndex = 1;
+            btnPaysip.Text = "Colilla de Pago";
+            btnPaysip.TextAlign = ContentAlignment.MiddleLeft;
+            btnPaysip.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // btnProccessPayroll
             // 
-            button15.Cursor = Cursors.Hand;
-            button15.Dock = DockStyle.Top;
-            button15.FlatAppearance.BorderSize = 0;
-            button15.FlatStyle = FlatStyle.Flat;
-            button15.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button15.ForeColor = Color.FromArgb(246, 246, 247);
-            button15.Location = new Point(0, 0);
-            button15.Margin = new Padding(0);
-            button15.Name = "button15";
-            button15.Padding = new Padding(19, 0, 0, 0);
-            button15.Size = new Size(240, 32);
-            button15.TabIndex = 0;
-            button15.Text = "Procesar Nomina";
-            button15.TextAlign = ContentAlignment.MiddleLeft;
-            button15.UseVisualStyleBackColor = true;
+            btnProccessPayroll.Cursor = Cursors.Hand;
+            btnProccessPayroll.Dock = DockStyle.Top;
+            btnProccessPayroll.FlatAppearance.BorderSize = 0;
+            btnProccessPayroll.FlatStyle = FlatStyle.Flat;
+            btnProccessPayroll.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnProccessPayroll.ForeColor = Color.FromArgb(246, 246, 247);
+            btnProccessPayroll.Location = new Point(0, 0);
+            btnProccessPayroll.Margin = new Padding(0);
+            btnProccessPayroll.Name = "btnProccessPayroll";
+            btnProccessPayroll.Padding = new Padding(19, 0, 0, 0);
+            btnProccessPayroll.Size = new Size(219, 32);
+            btnProccessPayroll.TabIndex = 0;
+            btnProccessPayroll.Text = "Procesar Nomina";
+            btnProccessPayroll.TextAlign = ContentAlignment.MiddleLeft;
+            btnProccessPayroll.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnPayroll
             // 
-            button6.BackColor = Color.FromArgb(58, 61, 73);
-            button6.Dock = DockStyle.Top;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.ForeColor = Color.FromArgb(246, 246, 247);
-            button6.Location = new Point(0, 454);
-            button6.Margin = new Padding(2, 2, 2, 2);
-            button6.Name = "button6";
-            button6.Padding = new Padding(13, 0, 0, 0);
-            button6.Size = new Size(240, 32);
-            button6.TabIndex = 8;
-            button6.Text = "Nomina";
-            button6.TextAlign = ContentAlignment.MiddleLeft;
-            button6.UseVisualStyleBackColor = false;
+            btnPayroll.BackColor = Color.FromArgb(58, 61, 73);
+            btnPayroll.Dock = DockStyle.Top;
+            btnPayroll.FlatAppearance.BorderSize = 0;
+            btnPayroll.FlatStyle = FlatStyle.Flat;
+            btnPayroll.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPayroll.ForeColor = Color.FromArgb(246, 246, 247);
+            btnPayroll.Location = new Point(0, 470);
+            btnPayroll.Margin = new Padding(2);
+            btnPayroll.Name = "btnPayroll";
+            btnPayroll.Padding = new Padding(13, 0, 0, 0);
+            btnPayroll.Size = new Size(219, 40);
+            btnPayroll.TabIndex = 8;
+            btnPayroll.Text = "Nomina";
+            btnPayroll.TextAlign = ContentAlignment.MiddleLeft;
+            btnPayroll.UseVisualStyleBackColor = false;
+            btnPayroll.Click += btnPayroll_Click;
             // 
-            // panel3
+            // pnlSubMenuContracts
             // 
-            panel3.BackColor = Color.FromArgb(98, 100, 110);
-            panel3.Controls.Add(button11);
-            panel3.Controls.Add(button12);
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(0, 379);
-            panel3.Margin = new Padding(2, 2, 2, 2);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(240, 75);
-            panel3.TabIndex = 7;
+            pnlSubMenuContracts.BackColor = Color.FromArgb(98, 100, 110);
+            pnlSubMenuContracts.Controls.Add(btnPromotion);
+            pnlSubMenuContracts.Controls.Add(btnContract);
+            pnlSubMenuContracts.Dock = DockStyle.Top;
+            pnlSubMenuContracts.Location = new Point(0, 395);
+            pnlSubMenuContracts.Margin = new Padding(2);
+            pnlSubMenuContracts.Name = "pnlSubMenuContracts";
+            pnlSubMenuContracts.Size = new Size(219, 75);
+            pnlSubMenuContracts.TabIndex = 7;
             // 
-            // button11
+            // btnPromotion
             // 
-            button11.Cursor = Cursors.Hand;
-            button11.Dock = DockStyle.Top;
-            button11.FlatAppearance.BorderSize = 0;
-            button11.FlatStyle = FlatStyle.Flat;
-            button11.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button11.ForeColor = Color.FromArgb(246, 246, 247);
-            button11.Location = new Point(0, 32);
-            button11.Margin = new Padding(2, 2, 2, 2);
-            button11.Name = "button11";
-            button11.Padding = new Padding(19, 0, 0, 0);
-            button11.Size = new Size(240, 32);
-            button11.TabIndex = 1;
-            button11.Text = "Promotoria";
-            button11.TextAlign = ContentAlignment.MiddleLeft;
-            button11.UseVisualStyleBackColor = true;
+            btnPromotion.Cursor = Cursors.Hand;
+            btnPromotion.Dock = DockStyle.Top;
+            btnPromotion.FlatAppearance.BorderSize = 0;
+            btnPromotion.FlatStyle = FlatStyle.Flat;
+            btnPromotion.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPromotion.ForeColor = Color.FromArgb(246, 246, 247);
+            btnPromotion.Location = new Point(0, 32);
+            btnPromotion.Margin = new Padding(2);
+            btnPromotion.Name = "btnPromotion";
+            btnPromotion.Padding = new Padding(19, 0, 0, 0);
+            btnPromotion.Size = new Size(219, 32);
+            btnPromotion.TabIndex = 1;
+            btnPromotion.Text = "Promotoria";
+            btnPromotion.TextAlign = ContentAlignment.MiddleLeft;
+            btnPromotion.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnContract
             // 
-            button12.Cursor = Cursors.Hand;
-            button12.Dock = DockStyle.Top;
-            button12.FlatAppearance.BorderSize = 0;
-            button12.FlatStyle = FlatStyle.Flat;
-            button12.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button12.ForeColor = Color.FromArgb(246, 246, 247);
-            button12.Location = new Point(0, 0);
-            button12.Margin = new Padding(0);
-            button12.Name = "button12";
-            button12.Padding = new Padding(19, 0, 0, 0);
-            button12.Size = new Size(240, 32);
-            button12.TabIndex = 0;
-            button12.Text = "Contratos";
-            button12.TextAlign = ContentAlignment.MiddleLeft;
-            button12.UseVisualStyleBackColor = true;
+            btnContract.Cursor = Cursors.Hand;
+            btnContract.Dock = DockStyle.Top;
+            btnContract.FlatAppearance.BorderSize = 0;
+            btnContract.FlatStyle = FlatStyle.Flat;
+            btnContract.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnContract.ForeColor = Color.FromArgb(246, 246, 247);
+            btnContract.Location = new Point(0, 0);
+            btnContract.Margin = new Padding(0);
+            btnContract.Name = "btnContract";
+            btnContract.Padding = new Padding(19, 0, 0, 0);
+            btnContract.Size = new Size(219, 32);
+            btnContract.TabIndex = 0;
+            btnContract.Text = "Contratos";
+            btnContract.TextAlign = ContentAlignment.MiddleLeft;
+            btnContract.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnContracts
             // 
-            button9.BackColor = Color.FromArgb(58, 61, 73);
-            button9.Cursor = Cursors.Hand;
-            button9.Dock = DockStyle.Top;
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatStyle = FlatStyle.Flat;
-            button9.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button9.ForeColor = Color.FromArgb(246, 246, 247);
-            button9.Location = new Point(0, 347);
-            button9.Margin = new Padding(2, 2, 2, 2);
-            button9.Name = "button9";
-            button9.Padding = new Padding(13, 0, 0, 0);
-            button9.Size = new Size(240, 32);
-            button9.TabIndex = 6;
-            button9.Text = "Contrataciones";
-            button9.TextAlign = ContentAlignment.MiddleLeft;
-            button9.UseVisualStyleBackColor = false;
+            btnContracts.BackColor = Color.FromArgb(58, 61, 73);
+            btnContracts.Cursor = Cursors.Hand;
+            btnContracts.Dock = DockStyle.Top;
+            btnContracts.FlatAppearance.BorderSize = 0;
+            btnContracts.FlatStyle = FlatStyle.Flat;
+            btnContracts.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnContracts.ForeColor = Color.FromArgb(246, 246, 247);
+            btnContracts.Location = new Point(0, 355);
+            btnContracts.Margin = new Padding(2);
+            btnContracts.Name = "btnContracts";
+            btnContracts.Padding = new Padding(13, 0, 0, 0);
+            btnContracts.Size = new Size(219, 40);
+            btnContracts.TabIndex = 6;
+            btnContracts.Text = "Contrataciones";
+            btnContracts.TextAlign = ContentAlignment.MiddleLeft;
+            btnContracts.UseVisualStyleBackColor = false;
+            btnContracts.Click += btnContracts_Click;
             // 
-            // panel2
+            // pnlSubMenuEmployee
             // 
-            panel2.BackColor = Color.FromArgb(98, 100, 110);
-            panel2.Controls.Add(button7);
-            panel2.Controls.Add(button8);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 266);
-            panel2.Margin = new Padding(2, 2, 2, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(240, 81);
-            panel2.TabIndex = 5;
+            pnlSubMenuEmployee.BackColor = Color.FromArgb(98, 100, 110);
+            pnlSubMenuEmployee.Controls.Add(btnManagerEmployee);
+            pnlSubMenuEmployee.Controls.Add(btnRegisterEmployee);
+            pnlSubMenuEmployee.Dock = DockStyle.Top;
+            pnlSubMenuEmployee.Location = new Point(0, 274);
+            pnlSubMenuEmployee.Margin = new Padding(2);
+            pnlSubMenuEmployee.Name = "pnlSubMenuEmployee";
+            pnlSubMenuEmployee.Size = new Size(219, 81);
+            pnlSubMenuEmployee.TabIndex = 5;
             // 
-            // button7
+            // btnManagerEmployee
             // 
-            button7.Cursor = Cursors.Hand;
-            button7.Dock = DockStyle.Top;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button7.ForeColor = Color.FromArgb(246, 246, 247);
-            button7.Location = new Point(0, 32);
-            button7.Margin = new Padding(2, 2, 2, 2);
-            button7.Name = "button7";
-            button7.Padding = new Padding(19, 0, 0, 0);
-            button7.Size = new Size(240, 32);
-            button7.TabIndex = 1;
-            button7.Text = "Gestión de Formación";
-            button7.TextAlign = ContentAlignment.MiddleLeft;
-            button7.UseVisualStyleBackColor = true;
+            btnManagerEmployee.Cursor = Cursors.Hand;
+            btnManagerEmployee.Dock = DockStyle.Top;
+            btnManagerEmployee.FlatAppearance.BorderSize = 0;
+            btnManagerEmployee.FlatStyle = FlatStyle.Flat;
+            btnManagerEmployee.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnManagerEmployee.ForeColor = Color.FromArgb(246, 246, 247);
+            btnManagerEmployee.Location = new Point(0, 32);
+            btnManagerEmployee.Margin = new Padding(2);
+            btnManagerEmployee.Name = "btnManagerEmployee";
+            btnManagerEmployee.Padding = new Padding(19, 0, 0, 0);
+            btnManagerEmployee.Size = new Size(219, 32);
+            btnManagerEmployee.TabIndex = 1;
+            btnManagerEmployee.Text = "Gestión de Formación";
+            btnManagerEmployee.TextAlign = ContentAlignment.MiddleLeft;
+            btnManagerEmployee.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnRegisterEmployee
             // 
-            button8.Cursor = Cursors.Hand;
-            button8.Dock = DockStyle.Top;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button8.ForeColor = Color.FromArgb(246, 246, 247);
-            button8.Location = new Point(0, 0);
-            button8.Margin = new Padding(2, 2, 2, 2);
-            button8.Name = "button8";
-            button8.Padding = new Padding(19, 0, 0, 0);
-            button8.Size = new Size(240, 32);
-            button8.TabIndex = 0;
-            button8.Text = "Registrar Empleado";
-            button8.TextAlign = ContentAlignment.MiddleLeft;
-            button8.UseVisualStyleBackColor = true;
+            btnRegisterEmployee.Cursor = Cursors.Hand;
+            btnRegisterEmployee.Dock = DockStyle.Top;
+            btnRegisterEmployee.FlatAppearance.BorderSize = 0;
+            btnRegisterEmployee.FlatStyle = FlatStyle.Flat;
+            btnRegisterEmployee.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegisterEmployee.ForeColor = Color.FromArgb(246, 246, 247);
+            btnRegisterEmployee.Location = new Point(0, 0);
+            btnRegisterEmployee.Margin = new Padding(2);
+            btnRegisterEmployee.Name = "btnRegisterEmployee";
+            btnRegisterEmployee.Padding = new Padding(19, 0, 0, 0);
+            btnRegisterEmployee.Size = new Size(219, 32);
+            btnRegisterEmployee.TabIndex = 0;
+            btnRegisterEmployee.Text = "Registrar Empleado";
+            btnRegisterEmployee.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegisterEmployee.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnEmployee
             // 
-            button5.BackColor = Color.FromArgb(58, 61, 73);
-            button5.Cursor = Cursors.Hand;
-            button5.Dock = DockStyle.Top;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.FromArgb(246, 246, 247);
-            button5.Location = new Point(0, 234);
-            button5.Margin = new Padding(2, 2, 2, 2);
-            button5.Name = "button5";
-            button5.Padding = new Padding(13, 0, 0, 0);
-            button5.Size = new Size(240, 32);
-            button5.TabIndex = 4;
-            button5.Text = "Empleados";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = false;
+            btnEmployee.BackColor = Color.FromArgb(58, 61, 73);
+            btnEmployee.Cursor = Cursors.Hand;
+            btnEmployee.Dock = DockStyle.Top;
+            btnEmployee.FlatAppearance.BorderSize = 0;
+            btnEmployee.FlatStyle = FlatStyle.Flat;
+            btnEmployee.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEmployee.ForeColor = Color.FromArgb(246, 246, 247);
+            btnEmployee.Location = new Point(0, 234);
+            btnEmployee.Margin = new Padding(2);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Padding = new Padding(13, 0, 0, 0);
+            btnEmployee.Size = new Size(219, 40);
+            btnEmployee.TabIndex = 4;
+            btnEmployee.Text = "Empleados";
+            btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
+            btnEmployee.UseVisualStyleBackColor = false;
+            btnEmployee.Click += btnEmployee_Click;
             // 
-            // panel1
+            // pnlSubMenuCatalog
             // 
-            panel1.BackColor = Color.FromArgb(98, 100, 110);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 106);
-            panel1.Margin = new Padding(2, 2, 2, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(240, 128);
-            panel1.TabIndex = 2;
+            pnlSubMenuCatalog.BackColor = Color.FromArgb(98, 100, 110);
+            pnlSubMenuCatalog.Controls.Add(btnJobTitle);
+            pnlSubMenuCatalog.Controls.Add(btnMunicipality);
+            pnlSubMenuCatalog.Controls.Add(btnDepartment);
+            pnlSubMenuCatalog.Dock = DockStyle.Top;
+            pnlSubMenuCatalog.Location = new Point(0, 106);
+            pnlSubMenuCatalog.Margin = new Padding(2);
+            pnlSubMenuCatalog.Name = "pnlSubMenuCatalog";
+            pnlSubMenuCatalog.Size = new Size(219, 128);
+            pnlSubMenuCatalog.TabIndex = 2;
             // 
-            // button4
+            // btnJobTitle
             // 
-            button4.Cursor = Cursors.Hand;
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.FromArgb(246, 246, 247);
-            button4.Image = Properties.Resources.arrow_right;
-            button4.ImageAlign = ContentAlignment.MiddleRight;
-            button4.Location = new Point(0, 80);
-            button4.Margin = new Padding(2, 2, 2, 2);
-            button4.Name = "button4";
-            button4.Padding = new Padding(19, 0, 0, 0);
-            button4.Size = new Size(240, 40);
-            button4.TabIndex = 2;
-            button4.Text = "Categoría Laboral";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = true;
+            btnJobTitle.Cursor = Cursors.Hand;
+            btnJobTitle.Dock = DockStyle.Top;
+            btnJobTitle.FlatAppearance.BorderSize = 0;
+            btnJobTitle.FlatStyle = FlatStyle.Flat;
+            btnJobTitle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnJobTitle.ForeColor = Color.FromArgb(246, 246, 247);
+            btnJobTitle.Image = Properties.Resources.arrow_right;
+            btnJobTitle.ImageAlign = ContentAlignment.MiddleRight;
+            btnJobTitle.Location = new Point(0, 80);
+            btnJobTitle.Margin = new Padding(2);
+            btnJobTitle.Name = "btnJobTitle";
+            btnJobTitle.Padding = new Padding(19, 0, 0, 0);
+            btnJobTitle.Size = new Size(219, 40);
+            btnJobTitle.TabIndex = 2;
+            btnJobTitle.Text = "Categoría Laboral";
+            btnJobTitle.TextAlign = ContentAlignment.MiddleLeft;
+            btnJobTitle.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnMunicipality
             // 
-            button3.Cursor = Cursors.Hand;
-            button3.Dock = DockStyle.Top;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.FromArgb(246, 246, 247);
-            button3.Image = Properties.Resources.arrow_right;
-            button3.ImageAlign = ContentAlignment.MiddleRight;
-            button3.Location = new Point(0, 40);
-            button3.Margin = new Padding(2, 2, 2, 2);
-            button3.Name = "button3";
-            button3.Padding = new Padding(19, 0, 0, 0);
-            button3.Size = new Size(240, 40);
-            button3.TabIndex = 1;
-            button3.Text = "Municipios";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
+            btnMunicipality.Cursor = Cursors.Hand;
+            btnMunicipality.Dock = DockStyle.Top;
+            btnMunicipality.FlatAppearance.BorderSize = 0;
+            btnMunicipality.FlatStyle = FlatStyle.Flat;
+            btnMunicipality.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMunicipality.ForeColor = Color.FromArgb(246, 246, 247);
+            btnMunicipality.Image = Properties.Resources.arrow_right;
+            btnMunicipality.ImageAlign = ContentAlignment.MiddleRight;
+            btnMunicipality.Location = new Point(0, 40);
+            btnMunicipality.Margin = new Padding(2);
+            btnMunicipality.Name = "btnMunicipality";
+            btnMunicipality.Padding = new Padding(19, 0, 0, 0);
+            btnMunicipality.Size = new Size(219, 40);
+            btnMunicipality.TabIndex = 1;
+            btnMunicipality.Text = "Municipios";
+            btnMunicipality.TextAlign = ContentAlignment.MiddleLeft;
+            btnMunicipality.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDepartment
             // 
-            button2.Cursor = Cursors.Hand;
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.FromArgb(246, 246, 247);
-            button2.Image = Properties.Resources.arrow_right;
-            button2.ImageAlign = ContentAlignment.MiddleRight;
-            button2.Location = new Point(0, 0);
-            button2.Margin = new Padding(2, 2, 2, 2);
-            button2.Name = "button2";
-            button2.Padding = new Padding(19, 0, 0, 0);
-            button2.Size = new Size(240, 40);
-            button2.TabIndex = 0;
-            button2.Text = "Geo-Departamentos";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = true;
+            btnDepartment.Cursor = Cursors.Hand;
+            btnDepartment.Dock = DockStyle.Top;
+            btnDepartment.FlatAppearance.BorderSize = 0;
+            btnDepartment.FlatStyle = FlatStyle.Flat;
+            btnDepartment.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDepartment.ForeColor = Color.FromArgb(246, 246, 247);
+            btnDepartment.Image = Properties.Resources.arrow_right;
+            btnDepartment.ImageAlign = ContentAlignment.MiddleRight;
+            btnDepartment.Location = new Point(0, 0);
+            btnDepartment.Margin = new Padding(2);
+            btnDepartment.Name = "btnDepartment";
+            btnDepartment.Padding = new Padding(19, 0, 0, 0);
+            btnDepartment.Size = new Size(219, 40);
+            btnDepartment.TabIndex = 0;
+            btnDepartment.Text = "Geo-Departamentos";
+            btnDepartment.TextAlign = ContentAlignment.MiddleLeft;
+            btnDepartment.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCatalog
             // 
-            button1.BackColor = Color.FromArgb(58, 61, 73);
-            button1.Cursor = Cursors.Hand;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.FromArgb(246, 246, 247);
-            button1.Image = Properties.Resources.catalog_12;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 66);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Padding = new Padding(13, 0, 0, 0);
-            button1.Size = new Size(240, 40);
-            button1.TabIndex = 3;
-            button1.Text = "Catálogo";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
+            btnCatalog.BackColor = Color.FromArgb(58, 61, 73);
+            btnCatalog.Cursor = Cursors.Hand;
+            btnCatalog.Dock = DockStyle.Top;
+            btnCatalog.FlatAppearance.BorderSize = 0;
+            btnCatalog.FlatStyle = FlatStyle.Flat;
+            btnCatalog.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCatalog.ForeColor = Color.FromArgb(246, 246, 247);
+            btnCatalog.Image = Properties.Resources.catalog_12;
+            btnCatalog.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCatalog.Location = new Point(0, 66);
+            btnCatalog.Margin = new Padding(0);
+            btnCatalog.Name = "btnCatalog";
+            btnCatalog.Padding = new Padding(13, 0, 0, 0);
+            btnCatalog.Size = new Size(219, 40);
+            btnCatalog.TabIndex = 3;
+            btnCatalog.Text = "Catálogo";
+            btnCatalog.TextAlign = ContentAlignment.MiddleLeft;
+            btnCatalog.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCatalog.UseVisualStyleBackColor = false;
+            btnCatalog.Click += btnCatalog_Click;
             // 
             // pnlTitleNav
             // 
@@ -578,17 +588,17 @@
             pnlTitleNav.Controls.Add(label1);
             pnlTitleNav.Dock = DockStyle.Top;
             pnlTitleNav.Location = new Point(0, 0);
-            pnlTitleNav.Margin = new Padding(2, 2, 2, 2);
+            pnlTitleNav.Margin = new Padding(2);
             pnlTitleNav.Name = "pnlTitleNav";
-            pnlTitleNav.Size = new Size(240, 66);
+            pnlTitleNav.Size = new Size(219, 66);
             pnlTitleNav.TabIndex = 2;
             // 
             // pictureBox3
             // 
             pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox3.Image = Properties.Resources.user_nav;
-            pictureBox3.Location = new Point(191, 9);
-            pictureBox3.Margin = new Padding(2, 2, 2, 2);
+            pictureBox3.Location = new Point(170, 9);
+            pictureBox3.Margin = new Padding(2);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(38, 51);
             pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -603,30 +613,89 @@
             label1.Location = new Point(11, 19);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(129, 25);
+            label1.Size = new Size(155, 31);
             label1.TabIndex = 0;
             label1.Text = "NAVEGACION";
             // 
             // pnlBreadcrums
             // 
             pnlBreadcrums.BackColor = Color.FromArgb(226, 227, 228);
+            pnlBreadcrums.Controls.Add(btnExit);
+            pnlBreadcrums.Controls.Add(lblItems);
+            pnlBreadcrums.Controls.Add(lblMenu);
+            pnlBreadcrums.Controls.Add(lblHome);
             pnlBreadcrums.Dock = DockStyle.Top;
             pnlBreadcrums.Location = new Point(240, 64);
-            pnlBreadcrums.Margin = new Padding(2, 2, 2, 2);
+            pnlBreadcrums.Margin = new Padding(2);
             pnlBreadcrums.Name = "pnlBreadcrums";
-            pnlBreadcrums.Size = new Size(872, 48);
+            pnlBreadcrums.Size = new Size(983, 60);
             pnlBreadcrums.TabIndex = 2;
+            // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExit.Image = Properties.Resources.exit_f5f5f5;
+            btnExit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExit.Location = new Point(780, 13);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(85, 32);
+            btnExit.TabIndex = 3;
+            btnExit.Text = "Salir";
+            btnExit.TextAlign = ContentAlignment.MiddleRight;
+            btnExit.UseVisualStyleBackColor = true;
+            // 
+            // lblItems
+            // 
+            lblItems.AutoSize = true;
+            lblItems.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblItems.Location = new Point(156, 19);
+            lblItems.Name = "lblItems";
+            lblItems.Size = new Size(52, 23);
+            lblItems.TabIndex = 2;
+            lblItems.Text = "Items";
+            // 
+            // lblMenu
+            // 
+            lblMenu.AutoSize = true;
+            lblMenu.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMenu.Location = new Point(85, 19);
+            lblMenu.Name = "lblMenu";
+            lblMenu.Size = new Size(66, 23);
+            lblMenu.TabIndex = 1;
+            lblMenu.Text = "Menu /";
+            // 
+            // lblHome
+            // 
+            lblHome.AutoSize = true;
+            lblHome.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHome.Location = new Point(21, 19);
+            lblHome.Name = "lblHome";
+            lblHome.Size = new Size(63, 23);
+            lblHome.TabIndex = 0;
+            lblHome.Text = "Inicio /";
+            // 
+            // pnlContainer
+            // 
+            pnlContainer.Dock = DockStyle.Fill;
+            pnlContainer.Location = new Point(240, 124);
+            pnlContainer.Name = "pnlContainer";
+            pnlContainer.Size = new Size(983, 713);
+            pnlContainer.TabIndex = 3;
             // 
             // FrmContainerApps
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(1112, 837);
+            ClientSize = new Size(1223, 837);
+            Controls.Add(pnlContainer);
             Controls.Add(pnlBreadcrums);
             Controls.Add(pnlSideBarLeft);
             Controls.Add(pnlHeaderTop);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmContainerApps";
@@ -637,23 +706,23 @@
             pnlHeaderTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlSideBarLeft.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            pnlSubMenuReport.ResumeLayout(false);
+            pnlSubMenuPayroll.ResumeLayout(false);
+            pnlSubMenuContracts.ResumeLayout(false);
+            pnlSubMenuEmployee.ResumeLayout(false);
+            pnlSubMenuCatalog.ResumeLayout(false);
             pnlTitleNav.ResumeLayout(false);
             pnlTitleNav.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            pnlBreadcrums.ResumeLayout(false);
+            pnlBreadcrums.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnlHeaderTop;
-        private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label lblUserConnect;
         private Panel pnlSideBarLeft;
@@ -662,29 +731,35 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private Label label2;
-        private Button button1;
-        private Panel panel1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Panel panel2;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Panel panel3;
-        private Button button11;
-        private Button button12;
+        private Button btnCatalog;
+        private Panel pnlSubMenuCatalog;
+        private Button btnDepartment;
+        private Button btnMunicipality;
+        private Button btnJobTitle;
+        private Button btnEmployee;
+        private Panel pnlSubMenuEmployee;
+        private Button btnManagerEmployee;
+        private Button btnRegisterEmployee;
+        private Button btnContracts;
+        private Panel pnlSubMenuContracts;
+        private Button btnPromotion;
+        private Button btnContract;
         private Panel pnlBreadcrums;
-        private Button button6;
-        private Button button16;
-        private Panel panel4;
-        private Button button14;
-        private Button button15;
-        private Panel panel5;
-        private Button button17;
-        private Button button18;
-        private Button button19;
-        private Button button10;
+        private Button btnPayroll;
+        private Button btnReport;
+        private Panel pnlSubMenuPayroll;
+        private Button btnPaysip;
+        private Button btnProccessPayroll;
+        private Panel pnlSubMenuReport;
+        private Button btnReport3;
+        private Button btnReport2;
+        private Button btnReport1;
+        private Button btnAdmin;
+        private Panel pnlContainer;
+        private Button btnMenuSideBar;
+        private Label lblHome;
+        private Label lblMenu;
+        private Label lblItems;
+        private Button btnExit;
     }
 }
