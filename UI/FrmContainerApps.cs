@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Administration_RRHH.UI.admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,8 @@ namespace Administration_RRHH.UI
         {
             InitializeComponent(); // Initialize the form components
             CustomizeNavigation(); // Customize the navigation bar appearance
+            lblMenu.Text = String.Empty; // Clear the menu label text on form load
+            lblItems.Text = String.Empty; // Clear the items label text on form load
         }
 
         private void CustomizeNavigation()
@@ -27,6 +30,7 @@ namespace Administration_RRHH.UI
             pnlSubMenuContracts.Visible = false; // Hide the submenu by default
             pnlSubMenuPayroll.Visible = false; // Hide the submenu by default
             pnlSubMenuReport.Visible = false; // Hide the submenu by default
+            pnlSubMenuAdmin.Visible = false; // Hide the submenu by default
         }//end-CustomizeNavigation
 
 
@@ -66,50 +70,119 @@ namespace Administration_RRHH.UI
 
         private void OpenChildForm(Form childForm)
         {
+            //Cerrar el formulario activo actual si existe
             if (_activeForm != null)
-                _activeForm.Close();
-            _activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            pnlContainer.Controls.Add(childForm);
-            pnlContainer.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            {
+                _activeForm.Dispose(); //Cerrar el formulario activo actual para liberar recursos
+                pnlContainer.Controls.Clear(); //Limpiar los controles del panel
+                                               //contenedor para preparar el nuevo formulario
+            }
+            _activeForm = childForm; //Asignar el nuevo formulario como el formulario activo
+            childForm.TopLevel = false; //Configurar el formulario hijo para que no sea un
+                                        //formulario de nivel superior
+            Panel hostPanel = new Panel(); //Crear un nuevo panel para alojar el formulario hijo
+            hostPanel.Dock = DockStyle.Fill;
+            childForm.StartPosition = FormStartPosition.Manual; //Configurar la posición de inicio del formulario hijo como manual
+
+            //Centrar el formulario hijo dentro del panel contenedor
+            int x = (hostPanel.Width - childForm.Width / 2);
+            int y = (hostPanel.Height - childForm.Height) / 2;
+
+            childForm.Location = new Point(x, y); //Establecer la ubicación del formulario hijo
+            //volver a recentrar si se cambia de tamaño el panel contenedor
+            hostPanel.Resize += (s, e) =>
+            {
+                int newX = (hostPanel.Width - childForm.Width) / 2;
+                int newY = (hostPanel.Height - childForm.Height) / 2;
+                childForm.Location = new Point(newX, newY); //Recentrar el formulario hijo al cambiar el tamaño del panel
+            };
+
+            //Agregar el formulario hijo al panel contenedor y mostrarlo
+            hostPanel.Controls.Add(childForm); //Agregar el formulario hijo al panel contenedor
+
+            pnlContainer.Controls.Clear(); //Limpiar los controles del panel contenedor para mostrar
+                                           //solo el nuevo formulario
+            pnlContainer.Controls.Add(hostPanel); //Agregar el panel anfitrión al panel contenedor
+            childForm.Show(); //Mostrar el formulario hijo
+
         } //end-OpenChildForm
 
         private void btnCatalog_Click(object sender, EventArgs e)
         {
             ShowSubMenuPanel(pnlSubMenuCatalog);
-            lblMenu.Text = "";
-            lblMenu.Text = "Catálogo";
+            //Validar que el campo quede vacío antes de asignar el nuevo valor
+            if (!String.IsNullOrEmpty(lblMenu.Text))
+                lblMenu.Text = ""; // Limpiar el texto actual del menú
+            lblMenu.Text = "Catálogos /"; // Asignar el nuevo texto al menú
+
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             ShowSubMenuPanel(pnlSubMenuEmployee);
-            lblMenu.Text = "";
-            lblMenu.Text = "Empleados";
+            if (!String.IsNullOrEmpty(lblMenu.Text))
+                lblMenu.Text = String.Empty; // Limpiar el texto actual del menú
+            lblMenu.Text = "Empleados /"; // Asignar el nuevo texto al menú
         }
 
         private void btnContracts_Click(object sender, EventArgs e)
         {
             ShowSubMenuPanel(pnlSubMenuContracts);
-            lblMenu.Text = "";
-            lblMenu.Text = "Contratos";
+            if (!String.IsNullOrEmpty(lblMenu.Text))
+                lblMenu.Text = ""; // Limpiar el texto actual del menú
+            lblMenu.Text = "Contratos /"; // Asignar el nuevo texto al menú
         }
 
         private void btnPayroll_Click(object sender, EventArgs e)
         {
             ShowSubMenuPanel(pnlSubMenuPayroll);
-            lblMenu.Text = "";
-            lblMenu.Text = "Nómina";
+            if (!String.IsNullOrEmpty(lblMenu.Text))
+                lblMenu.Text = ""; // Limpiar el texto actual del menú
+            lblMenu.Text = "Nómina /"; // Asignar el nuevo texto al menú
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
             ShowSubMenuPanel(pnlSubMenuReport);
-            lblMenu.Text = "";
-            lblMenu.Text = "Reportes";
+            if (!String.IsNullOrEmpty(lblMenu.Text))
+                lblMenu.Text = String.Empty; // Limpiar el texto actual del menú
+            lblMenu.Text = "Reportes /"; // Asignar el nuevo texto al menú
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            ShowSubMenuPanel(pnlSubMenuAdmin);
+            if (!String.IsNullOrEmpty(lblMenu.Text))
+                lblMenu.Text = ""; // Limpiar el texto actual del menú
+            lblMenu.Text = "Administración /"; // Asignar el nuevo texto al menú
+        }
+
+        private void FrmContainerApps_Load(object sender, EventArgs e)
+        {
+            OpenChildForm(new Authentication());
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnMenuSideBar_Click(object sender, EventArgs e)
+        {
+            if (pnlSideBarLeft.Width == 240)
+            {
+                pnlSideBarLeft.Width = 60; // Colapsar la barra lateral a un ancho más pequeño
+                lblMenu.Visible = false; // Ocultar el texto del menú para ahorrar espacio
+                lblItems.Visible = false; // Ocultar el texto de los ítems para ahorrar espacio
+
+            }
+            else
+            {
+                pnlSideBarLeft.Width = 240; // Expandir la barra lateral al ancho original
+                lblMenu.Visible = true; // Mostrar el texto del menú nuevamente
+                lblItems.Visible = true;
+            }
+
         }
     }//end-class
 }//end-namespace

@@ -35,6 +35,10 @@
             lblUserConnect = new Label();
             pictureBox2 = new PictureBox();
             pnlSideBarLeft = new Panel();
+            pnlSubMenuAdmin = new Panel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             btnAdmin = new Button();
             pnlSubMenuReport = new Panel();
             btnReport3 = new Button();
@@ -71,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnlSideBarLeft.SuspendLayout();
+            pnlSubMenuAdmin.SuspendLayout();
             pnlSubMenuReport.SuspendLayout();
             pnlSubMenuPayroll.SuspendLayout();
             pnlSubMenuContracts.SuspendLayout();
@@ -106,6 +111,7 @@
             btnMenuSideBar.Size = new Size(48, 48);
             btnMenuSideBar.TabIndex = 5;
             btnMenuSideBar.UseVisualStyleBackColor = true;
+            btnMenuSideBar.Click += btnMenuSideBar_Click;
             // 
             // label2
             // 
@@ -159,6 +165,7 @@
             // 
             pnlSideBarLeft.AutoScroll = true;
             pnlSideBarLeft.BackColor = Color.FromArgb(85, 87, 98);
+            pnlSideBarLeft.Controls.Add(pnlSubMenuAdmin);
             pnlSideBarLeft.Controls.Add(btnAdmin);
             pnlSideBarLeft.Controls.Add(pnlSubMenuReport);
             pnlSideBarLeft.Controls.Add(btnReport);
@@ -173,10 +180,77 @@
             pnlSideBarLeft.Controls.Add(pnlTitleNav);
             pnlSideBarLeft.Dock = DockStyle.Left;
             pnlSideBarLeft.Location = new Point(0, 64);
-            pnlSideBarLeft.Margin = new Padding(2);
+            pnlSideBarLeft.Margin = new Padding(0);
             pnlSideBarLeft.Name = "pnlSideBarLeft";
-            pnlSideBarLeft.Size = new Size(240, 773);
+            pnlSideBarLeft.Size = new Size(240, 807);
             pnlSideBarLeft.TabIndex = 1;
+            // 
+            // pnlSubMenuAdmin
+            // 
+            pnlSubMenuAdmin.BackColor = Color.FromArgb(98, 100, 110);
+            pnlSubMenuAdmin.Controls.Add(button1);
+            pnlSubMenuAdmin.Controls.Add(button2);
+            pnlSubMenuAdmin.Controls.Add(button3);
+            pnlSubMenuAdmin.Dock = DockStyle.Top;
+            pnlSubMenuAdmin.Location = new Point(0, 779);
+            pnlSubMenuAdmin.Margin = new Padding(2);
+            pnlSubMenuAdmin.Name = "pnlSubMenuAdmin";
+            pnlSubMenuAdmin.Size = new Size(219, 108);
+            pnlSubMenuAdmin.TabIndex = 13;
+            // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.FromArgb(246, 246, 247);
+            button1.Location = new Point(0, 64);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Padding = new Padding(19, 0, 0, 0);
+            button1.Size = new Size(219, 32);
+            button1.TabIndex = 2;
+            button1.Text = "Admin 2";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Cursor = Cursors.Hand;
+            button2.Dock = DockStyle.Top;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(246, 246, 247);
+            button2.Location = new Point(0, 32);
+            button2.Margin = new Padding(2);
+            button2.Name = "button2";
+            button2.Padding = new Padding(19, 0, 0, 0);
+            button2.Size = new Size(219, 32);
+            button2.TabIndex = 1;
+            button2.Text = "Admin 1";
+            button2.TextAlign = ContentAlignment.MiddleLeft;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Cursor = Cursors.Hand;
+            button3.Dock = DockStyle.Top;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(246, 246, 247);
+            button3.Location = new Point(0, 0);
+            button3.Margin = new Padding(0);
+            button3.Name = "button3";
+            button3.Padding = new Padding(19, 0, 0, 0);
+            button3.Size = new Size(219, 32);
+            button3.TabIndex = 0;
+            button3.Text = "Cuentas de Usuario";
+            button3.TextAlign = ContentAlignment.MiddleLeft;
+            button3.UseVisualStyleBackColor = true;
             // 
             // btnAdmin
             // 
@@ -195,6 +269,7 @@
             btnAdmin.Text = "Administrar";
             btnAdmin.TextAlign = ContentAlignment.MiddleLeft;
             btnAdmin.UseVisualStyleBackColor = false;
+            btnAdmin.Click += btnAdmin_Click;
             // 
             // pnlSubMenuReport
             // 
@@ -619,7 +694,7 @@
             // 
             // pnlBreadcrums
             // 
-            pnlBreadcrums.BackColor = Color.FromArgb(226, 227, 228);
+            pnlBreadcrums.BackColor = Color.FromArgb(237, 238, 239);
             pnlBreadcrums.Controls.Add(btnExit);
             pnlBreadcrums.Controls.Add(lblItems);
             pnlBreadcrums.Controls.Add(lblMenu);
@@ -634,18 +709,22 @@
             // btnExit
             // 
             btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.Cursor = Cursors.Hand;
             btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.MouseDownBackColor = Color.FromArgb(237, 238, 239);
+            btnExit.FlatAppearance.MouseOverBackColor = Color.FromArgb(237, 238, 239);
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.exit_f5f5f5;
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(780, 13);
+            btnExit.Location = new Point(779, 11);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(85, 32);
+            btnExit.Size = new Size(100, 40);
             btnExit.TabIndex = 3;
             btnExit.Text = "Salir";
             btnExit.TextAlign = ContentAlignment.MiddleRight;
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // lblItems
             // 
@@ -679,17 +758,18 @@
             // 
             // pnlContainer
             // 
+            pnlContainer.BackColor = Color.FromArgb(246, 246, 247);
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(240, 124);
             pnlContainer.Name = "pnlContainer";
-            pnlContainer.Size = new Size(983, 713);
+            pnlContainer.Size = new Size(983, 747);
             pnlContainer.TabIndex = 3;
             // 
             // FrmContainerApps
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(1223, 837);
+            ClientSize = new Size(1223, 871);
             Controls.Add(pnlContainer);
             Controls.Add(pnlBreadcrums);
             Controls.Add(pnlSideBarLeft);
@@ -702,11 +782,13 @@
             ShowIcon = false;
             Text = "TalentHQ";
             WindowState = FormWindowState.Maximized;
+            Load += FrmContainerApps_Load;
             pnlHeaderTop.ResumeLayout(false);
             pnlHeaderTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             pnlSideBarLeft.ResumeLayout(false);
+            pnlSubMenuAdmin.ResumeLayout(false);
             pnlSubMenuReport.ResumeLayout(false);
             pnlSubMenuPayroll.ResumeLayout(false);
             pnlSubMenuContracts.ResumeLayout(false);
@@ -761,5 +843,9 @@
         private Label lblMenu;
         private Label lblItems;
         private Button btnExit;
+        private Panel pnlSubMenuAdmin;
+        private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }
