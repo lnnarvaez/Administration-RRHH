@@ -16,5 +16,10 @@ namespace Administration_RRHH.UI.admin
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

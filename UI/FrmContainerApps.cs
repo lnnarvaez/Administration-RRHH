@@ -1,4 +1,5 @@
 ﻿using Administration_RRHH.UI.admin;
+using Administration_RRHH.UI.Catalogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -183,6 +184,22 @@ namespace Administration_RRHH.UI
                 lblItems.Visible = true;
             }
 
+        }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new DepartmentAreaForm());
+            if (!string.IsNullOrEmpty(lblItems.Text))
+                lblItems.Text = ""; // Limpiar el texto actual de los ítems
+            lblItems.Text = "Departamentos"; // Asignar el nuevo texto a los ítems
+        }
+
+        private void btnMunicipality_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new MunicipalityForm());
+            if (!string.IsNullOrEmpty(lblItems.Text))
+                lblItems.Text = ""; // Limpiar el texto actual de los ítems
+            lblItems.Text = "Municipios"; // Asignar el nuevo texto a los ítems
         }
     }//end-class
 }//end-namespace
