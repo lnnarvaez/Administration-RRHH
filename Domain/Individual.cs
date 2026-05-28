@@ -1,77 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Administration_RRHH.Domain
+﻿namespace Administration_RRHH.Domain
 {
-    public class Individual
+    public abstract class Individual
     {
-            // --- Backing fields ---
-            private string _idNumber = string.Empty;
-            private string _name = string.Empty;
-            private string _surname = string.Empty;
-            private DateOnly _birthdate;
+        //Declaración de propiedades para la clase Individual
+        public string IdNumber { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public DateTime Birthdate { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
 
-            // --- Propiedades con validación encapsulada ---
-            public string IdNumber
-            {
-                get => _idNumber;
-                set => _idNumber = !string.IsNullOrWhiteSpace(value)
-                    ? value.Trim()
-                    : throw new ArgumentException("IdNumber requerido.", nameof(IdNumber));
-            }
+        //Constructor para la clase Individual sin parámetros
+        public Individual()
+        {
+            IdNumber = string.Empty;
+            Name = string.Empty;
+            Surname = string.Empty;
+            Birthdate = DateTime.MinValue;
+            Phone = string.Empty;
+            Address = string.Empty;
+        }
 
-            public string Name
-            {
-                get => _name;
-                set => _name = !string.IsNullOrWhiteSpace(value)
-                    ? value.Trim()
-                    : throw new ArgumentException("Name requerido.", nameof(Name));
-            }
-            public string Surname
-            {
-                get => _surname;
-                set => _surname = !string.IsNullOrWhiteSpace(value)
-                    ? value.Trim()
-                    : throw new ArgumentException("Surname requerido.", nameof(Surname));
-            }
+        //Constructor para la clase Individual con parámetros
+        public Individual(string idNumber, string name, string surname, 
+                          DateTime birthdate, string phone, string address)
+        {
+            IdNumber = idNumber;
+            Name = name;
+            Surname = surname;
+            Birthdate = birthdate;
+            Phone = phone;
+            Address = address;
+        }
 
-            public DateOnly Birthdate
-            {
-                get => _birthdate;
-                set
-                {
-                    var max = DateOnly.FromDateTime(DateTime.Today.AddYears(-18));
-                    var min = DateOnly.FromDateTime(DateTime.Today.AddYears(-70));
+        //Método abstracto para calcular la edad de la persona
+        protected abstract int CalculateAge();
 
-                    _birthdate = (value <= max && value >= min)
-                        ? value
-                        : throw new ArgumentOutOfRangeException(nameof(Birthdate),
-                            $"La fecha debe estar entre {min} y {max}.");
-                }
-            }
+        //Método para validar la fecha de nacimiento
+        protected bool ValidateBirthdate(DateTime birthdate)
+        {
+            return birthdate <= DateTime.Now;
+        }
 
-            public string Inss { get; set; } = string.Empty;
-            public string Phone { get; set; } = string.Empty;
-            public string Address { get; set; } = string.Empty;
-
-            //Para el manejo con persistencia
-            protected Individual() { }
-
-            // Constructor de dominio
-            public Individual(string idNumber, string inss, string name, string surname,
-                              DateOnly birthdate, string phone, string address)
-            {
-                IdNumber = idNumber;   // ← dispara validación del setter
-                Inss = inss;
-                Name = name;
-                Surname = surname;
-                Birthdate = birthdate;  // ← dispara validación de edad
-                Phone = phone;
-                Address = address;
-            }
-        
     }//end-Class
 }//end-namespace

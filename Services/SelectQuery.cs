@@ -11,25 +11,25 @@ namespace Administration_RRHH.Services
     /// </summary>
     public class SelectQuery: DatabaseConnection
     {
-        // Hereda _connection y _command de la superclase DatabaseConnection.
+        //heredar constructores de la clase base
         public SelectQuery() : base() { }
+
         public SelectQuery(string connectionString) : base(connectionString) { }
 
         /// <summary>
-        /// Ejecuta una consulta SELECT y devuelve un DataTable con los resultados.
+        /// Ejecuta una consulta SELECT con parámetros opcionales y devuelve los resultados en un DataTable.
         /// </summary>
-        /// <param name="query">Consulta SQL parametrizada.</param>
-        /// <param name="parameters">Parámetros SQL (previenen inyección SQL).</param>
-        /// <returns>DataTable con los registros encontrados.</returns>
-        public DataTable ExecuteSelect(string query,
-                                       SqlParameter[]? parameters = null)
+        /// <param name="query">Consulta SQL Parametrizada</param>
+        /// <param name="parameters">Parámetros SQL (previene inyección de SQL)</param>
+        /// <returns>DataTable con los resultados</returns>
+        public DataTable ExecuteSelect (string query, SqlParameter[] parameters = null)
         {
             DataTable result = new DataTable();
 
             try
+
             {
                 OpenConnection();
-
                 _command = new SqlCommand(query, _connection);
                 _command.CommandType = CommandType.Text;
 
@@ -37,18 +37,20 @@ namespace Administration_RRHH.Services
                     _command.Parameters.AddRange(parameters);
 
                 using SqlDataAdapter adapter = new SqlDataAdapter(_command);
-                adapter.Fill(result);
+                adapter.Fill(result); // Llenar el DataTable con los resultados de la consulta
             }
             catch (SqlException ex)
             {
-                throw new Exception($"Error SQL al ejecutar SELECT: {ex.Message}", ex);
+                throw new Exception($"Error al intentar obtener resultados " +
+                    $"{ex.Message}", ex);
             }
             finally
-            {
-                CloseConnection();
+            { 
+                CloseConnection(); //Cerrar la conexión en el bloque finally
+                                   //para asegurar que se ejecute siempre
             }
 
             return result;
-        } //end exe
+        }// end of ExecuteSelect
     }//End of class
 }//End of namespace

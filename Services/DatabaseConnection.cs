@@ -8,7 +8,7 @@ namespace Administration_RRHH.Services
     /// Gestiona el ciclo de vida de la conexión (abrir, cerrar, liberar).
     /// Las subclases heredan la conexión y la utilizan para sus operaciones.
     /// </summary>
-    public class DatabaseConnection: IDisposable
+    public abstract class DatabaseConnection: IDisposable
     {
         // ─── Campos protegidos ───────────────────────────────────────────────
         // 'protected' permite que las subclases accedan directamente a estos miembros.
