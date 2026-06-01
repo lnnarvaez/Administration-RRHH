@@ -1,6 +1,9 @@
 using Administration_RRHH.UI;
+using System.Windows.Forms;
+using WinFormsApp = System.Windows.Forms.Application;
 
-namespace Administration_RRHH
+namespace Administration_RRHH.UI
+
 {
     internal static class Program
     {
@@ -13,7 +16,8 @@ namespace Administration_RRHH
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmContainerApps());
+            WinFormsApp.Run(new FrmContainerApps());
+
         }
     }
 }

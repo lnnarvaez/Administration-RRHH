@@ -98,7 +98,7 @@
             pnlHeaderTop.Location = new Point(0, 0);
             pnlHeaderTop.Margin = new Padding(2);
             pnlHeaderTop.Name = "pnlHeaderTop";
-            pnlHeaderTop.Size = new Size(1223, 64);
+            pnlHeaderTop.Size = new Size(1457, 64);
             pnlHeaderTop.TabIndex = 0;
             // 
             // btnMenuSideBar
@@ -142,7 +142,7 @@
             lblUserConnect.AutoSize = true;
             lblUserConnect.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUserConnect.ForeColor = Color.FromArgb(251, 251, 251);
-            lblUserConnect.Location = new Point(1073, 25);
+            lblUserConnect.Location = new Point(1307, 25);
             lblUserConnect.Margin = new Padding(40, 0, 2, 0);
             lblUserConnect.Name = "lblUserConnect";
             lblUserConnect.Size = new Size(88, 19);
@@ -153,7 +153,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = Properties.Resources.user_orange;
-            pictureBox2.Location = new Point(1020, 9);
+            pictureBox2.Location = new Point(1254, 9);
             pictureBox2.Margin = new Padding(4, 2, 2, 2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(38, 51);
@@ -182,7 +182,7 @@
             pnlSideBarLeft.Location = new Point(0, 64);
             pnlSideBarLeft.Margin = new Padding(0);
             pnlSideBarLeft.Name = "pnlSideBarLeft";
-            pnlSideBarLeft.Size = new Size(240, 807);
+            pnlSideBarLeft.Size = new Size(240, 991);
             pnlSideBarLeft.TabIndex = 1;
             // 
             // pnlSubMenuAdmin
@@ -195,7 +195,7 @@
             pnlSubMenuAdmin.Location = new Point(0, 779);
             pnlSubMenuAdmin.Margin = new Padding(2);
             pnlSubMenuAdmin.Name = "pnlSubMenuAdmin";
-            pnlSubMenuAdmin.Size = new Size(223, 108);
+            pnlSubMenuAdmin.Size = new Size(240, 108);
             pnlSubMenuAdmin.TabIndex = 13;
             // 
             // button1
@@ -210,7 +210,7 @@
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Padding = new Padding(19, 0, 0, 0);
-            button1.Size = new Size(223, 32);
+            button1.Size = new Size(240, 32);
             button1.TabIndex = 2;
             button1.Text = "Admin 2";
             button1.TextAlign = ContentAlignment.MiddleLeft;
@@ -228,7 +228,7 @@
             button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Padding = new Padding(19, 0, 0, 0);
-            button2.Size = new Size(223, 32);
+            button2.Size = new Size(240, 32);
             button2.TabIndex = 1;
             button2.Text = "Admin 1";
             button2.TextAlign = ContentAlignment.MiddleLeft;
@@ -246,7 +246,7 @@
             button3.Margin = new Padding(0);
             button3.Name = "button3";
             button3.Padding = new Padding(19, 0, 0, 0);
-            button3.Size = new Size(223, 32);
+            button3.Size = new Size(240, 32);
             button3.TabIndex = 0;
             button3.Text = "Cuentas de Usuario";
             button3.TextAlign = ContentAlignment.MiddleLeft;
@@ -264,7 +264,7 @@
             btnAdmin.Margin = new Padding(2);
             btnAdmin.Name = "btnAdmin";
             btnAdmin.Padding = new Padding(13, 0, 0, 0);
-            btnAdmin.Size = new Size(223, 40);
+            btnAdmin.Size = new Size(240, 40);
             btnAdmin.TabIndex = 12;
             btnAdmin.Text = "Administrar";
             btnAdmin.TextAlign = ContentAlignment.MiddleLeft;
@@ -281,7 +281,7 @@
             pnlSubMenuReport.Location = new Point(0, 631);
             pnlSubMenuReport.Margin = new Padding(2);
             pnlSubMenuReport.Name = "pnlSubMenuReport";
-            pnlSubMenuReport.Size = new Size(223, 108);
+            pnlSubMenuReport.Size = new Size(240, 108);
             pnlSubMenuReport.TabIndex = 11;
             // 
             // btnReport3
@@ -296,7 +296,7 @@
             btnReport3.Margin = new Padding(2);
             btnReport3.Name = "btnReport3";
             btnReport3.Padding = new Padding(19, 0, 0, 0);
-            btnReport3.Size = new Size(223, 32);
+            btnReport3.Size = new Size(240, 32);
             btnReport3.TabIndex = 2;
             btnReport3.Text = "Reporte 3";
             btnReport3.TextAlign = ContentAlignment.MiddleLeft;
@@ -314,7 +314,7 @@
             btnReport2.Margin = new Padding(2);
             btnReport2.Name = "btnReport2";
             btnReport2.Padding = new Padding(19, 0, 0, 0);
-            btnReport2.Size = new Size(223, 32);
+            btnReport2.Size = new Size(240, 32);
             btnReport2.TabIndex = 1;
             btnReport2.Text = "Reporte 2";
             btnReport2.TextAlign = ContentAlignment.MiddleLeft;
@@ -332,7 +332,7 @@
             btnReport1.Margin = new Padding(0);
             btnReport1.Name = "btnReport1";
             btnReport1.Padding = new Padding(19, 0, 0, 0);
-            btnReport1.Size = new Size(223, 32);
+            btnReport1.Size = new Size(240, 32);
             btnReport1.TabIndex = 0;
             btnReport1.Text = "Reporte 1";
             btnReport1.TextAlign = ContentAlignment.MiddleLeft;
@@ -350,7 +350,7 @@
             btnReport.Margin = new Padding(2);
             btnReport.Name = "btnReport";
             btnReport.Padding = new Padding(13, 0, 0, 0);
-            btnReport.Size = new Size(223, 40);
+            btnReport.Size = new Size(240, 40);
             btnReport.TabIndex = 10;
             btnReport.Text = "Reportes";
             btnReport.TextAlign = ContentAlignment.MiddleLeft;
@@ -366,7 +366,7 @@
             pnlSubMenuPayroll.Location = new Point(0, 510);
             pnlSubMenuPayroll.Margin = new Padding(2);
             pnlSubMenuPayroll.Name = "pnlSubMenuPayroll";
-            pnlSubMenuPayroll.Size = new Size(223, 81);
+            pnlSubMenuPayroll.Size = new Size(240, 81);
             pnlSubMenuPayroll.TabIndex = 9;
             // 
             // btnPaysip
@@ -381,7 +381,7 @@
             btnPaysip.Margin = new Padding(2);
             btnPaysip.Name = "btnPaysip";
             btnPaysip.Padding = new Padding(19, 0, 0, 0);
-            btnPaysip.Size = new Size(223, 32);
+            btnPaysip.Size = new Size(240, 32);
             btnPaysip.TabIndex = 1;
             btnPaysip.Text = "Colilla de Pago";
             btnPaysip.TextAlign = ContentAlignment.MiddleLeft;
@@ -399,7 +399,7 @@
             btnProccessPayroll.Margin = new Padding(0);
             btnProccessPayroll.Name = "btnProccessPayroll";
             btnProccessPayroll.Padding = new Padding(19, 0, 0, 0);
-            btnProccessPayroll.Size = new Size(223, 32);
+            btnProccessPayroll.Size = new Size(240, 32);
             btnProccessPayroll.TabIndex = 0;
             btnProccessPayroll.Text = "Procesar Nomina";
             btnProccessPayroll.TextAlign = ContentAlignment.MiddleLeft;
@@ -417,7 +417,7 @@
             btnPayroll.Margin = new Padding(2);
             btnPayroll.Name = "btnPayroll";
             btnPayroll.Padding = new Padding(13, 0, 0, 0);
-            btnPayroll.Size = new Size(223, 40);
+            btnPayroll.Size = new Size(240, 40);
             btnPayroll.TabIndex = 8;
             btnPayroll.Text = "Nomina";
             btnPayroll.TextAlign = ContentAlignment.MiddleLeft;
@@ -433,7 +433,7 @@
             pnlSubMenuContracts.Location = new Point(0, 395);
             pnlSubMenuContracts.Margin = new Padding(2);
             pnlSubMenuContracts.Name = "pnlSubMenuContracts";
-            pnlSubMenuContracts.Size = new Size(223, 75);
+            pnlSubMenuContracts.Size = new Size(240, 75);
             pnlSubMenuContracts.TabIndex = 7;
             // 
             // btnPromotion
@@ -448,7 +448,7 @@
             btnPromotion.Margin = new Padding(2);
             btnPromotion.Name = "btnPromotion";
             btnPromotion.Padding = new Padding(19, 0, 0, 0);
-            btnPromotion.Size = new Size(223, 32);
+            btnPromotion.Size = new Size(240, 32);
             btnPromotion.TabIndex = 1;
             btnPromotion.Text = "Promotoria";
             btnPromotion.TextAlign = ContentAlignment.MiddleLeft;
@@ -466,7 +466,7 @@
             btnContract.Margin = new Padding(0);
             btnContract.Name = "btnContract";
             btnContract.Padding = new Padding(19, 0, 0, 0);
-            btnContract.Size = new Size(223, 32);
+            btnContract.Size = new Size(240, 32);
             btnContract.TabIndex = 0;
             btnContract.Text = "Contratos";
             btnContract.TextAlign = ContentAlignment.MiddleLeft;
@@ -485,7 +485,7 @@
             btnContracts.Margin = new Padding(2);
             btnContracts.Name = "btnContracts";
             btnContracts.Padding = new Padding(13, 0, 0, 0);
-            btnContracts.Size = new Size(223, 40);
+            btnContracts.Size = new Size(240, 40);
             btnContracts.TabIndex = 6;
             btnContracts.Text = "Contrataciones";
             btnContracts.TextAlign = ContentAlignment.MiddleLeft;
@@ -501,7 +501,7 @@
             pnlSubMenuEmployee.Location = new Point(0, 274);
             pnlSubMenuEmployee.Margin = new Padding(2);
             pnlSubMenuEmployee.Name = "pnlSubMenuEmployee";
-            pnlSubMenuEmployee.Size = new Size(223, 81);
+            pnlSubMenuEmployee.Size = new Size(240, 81);
             pnlSubMenuEmployee.TabIndex = 5;
             // 
             // btnManagerEmployee
@@ -516,7 +516,7 @@
             btnManagerEmployee.Margin = new Padding(2);
             btnManagerEmployee.Name = "btnManagerEmployee";
             btnManagerEmployee.Padding = new Padding(19, 0, 0, 0);
-            btnManagerEmployee.Size = new Size(223, 32);
+            btnManagerEmployee.Size = new Size(240, 32);
             btnManagerEmployee.TabIndex = 1;
             btnManagerEmployee.Text = "Gestión de Formación";
             btnManagerEmployee.TextAlign = ContentAlignment.MiddleLeft;
@@ -534,7 +534,7 @@
             btnRegisterEmployee.Margin = new Padding(2);
             btnRegisterEmployee.Name = "btnRegisterEmployee";
             btnRegisterEmployee.Padding = new Padding(19, 0, 0, 0);
-            btnRegisterEmployee.Size = new Size(223, 32);
+            btnRegisterEmployee.Size = new Size(240, 32);
             btnRegisterEmployee.TabIndex = 0;
             btnRegisterEmployee.Text = "Registrar Empleado";
             btnRegisterEmployee.TextAlign = ContentAlignment.MiddleLeft;
@@ -553,7 +553,7 @@
             btnEmployee.Margin = new Padding(2);
             btnEmployee.Name = "btnEmployee";
             btnEmployee.Padding = new Padding(13, 0, 0, 0);
-            btnEmployee.Size = new Size(223, 40);
+            btnEmployee.Size = new Size(240, 40);
             btnEmployee.TabIndex = 4;
             btnEmployee.Text = "Empleados";
             btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
@@ -570,7 +570,7 @@
             pnlSubMenuCatalog.Location = new Point(0, 106);
             pnlSubMenuCatalog.Margin = new Padding(2);
             pnlSubMenuCatalog.Name = "pnlSubMenuCatalog";
-            pnlSubMenuCatalog.Size = new Size(223, 128);
+            pnlSubMenuCatalog.Size = new Size(240, 128);
             pnlSubMenuCatalog.TabIndex = 2;
             // 
             // btnJobTitle
@@ -581,13 +581,12 @@
             btnJobTitle.FlatStyle = FlatStyle.Flat;
             btnJobTitle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnJobTitle.ForeColor = Color.FromArgb(246, 246, 247);
-            btnJobTitle.Image = Properties.Resources.arrow_right;
             btnJobTitle.ImageAlign = ContentAlignment.MiddleRight;
             btnJobTitle.Location = new Point(0, 80);
             btnJobTitle.Margin = new Padding(2);
             btnJobTitle.Name = "btnJobTitle";
             btnJobTitle.Padding = new Padding(19, 0, 0, 0);
-            btnJobTitle.Size = new Size(223, 40);
+            btnJobTitle.Size = new Size(240, 40);
             btnJobTitle.TabIndex = 2;
             btnJobTitle.Text = "Categoría Laboral";
             btnJobTitle.TextAlign = ContentAlignment.MiddleLeft;
@@ -601,13 +600,12 @@
             btnMunicipality.FlatStyle = FlatStyle.Flat;
             btnMunicipality.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMunicipality.ForeColor = Color.FromArgb(246, 246, 247);
-            btnMunicipality.Image = Properties.Resources.arrow_right;
             btnMunicipality.ImageAlign = ContentAlignment.MiddleRight;
             btnMunicipality.Location = new Point(0, 40);
             btnMunicipality.Margin = new Padding(2);
             btnMunicipality.Name = "btnMunicipality";
             btnMunicipality.Padding = new Padding(19, 0, 0, 0);
-            btnMunicipality.Size = new Size(223, 40);
+            btnMunicipality.Size = new Size(240, 40);
             btnMunicipality.TabIndex = 1;
             btnMunicipality.Text = "Municipios";
             btnMunicipality.TextAlign = ContentAlignment.MiddleLeft;
@@ -622,13 +620,12 @@
             btnDepartment.FlatStyle = FlatStyle.Flat;
             btnDepartment.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDepartment.ForeColor = Color.FromArgb(246, 246, 247);
-            btnDepartment.Image = Properties.Resources.arrow_right;
             btnDepartment.ImageAlign = ContentAlignment.MiddleRight;
             btnDepartment.Location = new Point(0, 0);
             btnDepartment.Margin = new Padding(2);
             btnDepartment.Name = "btnDepartment";
             btnDepartment.Padding = new Padding(19, 0, 0, 0);
-            btnDepartment.Size = new Size(223, 40);
+            btnDepartment.Size = new Size(240, 40);
             btnDepartment.TabIndex = 0;
             btnDepartment.Text = "Geo-Departamentos";
             btnDepartment.TextAlign = ContentAlignment.MiddleLeft;
@@ -644,13 +641,12 @@
             btnCatalog.FlatStyle = FlatStyle.Flat;
             btnCatalog.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCatalog.ForeColor = Color.FromArgb(246, 246, 247);
-            btnCatalog.Image = Properties.Resources.catalog_12;
             btnCatalog.ImageAlign = ContentAlignment.MiddleLeft;
             btnCatalog.Location = new Point(0, 66);
             btnCatalog.Margin = new Padding(0);
             btnCatalog.Name = "btnCatalog";
             btnCatalog.Padding = new Padding(13, 0, 0, 0);
-            btnCatalog.Size = new Size(223, 40);
+            btnCatalog.Size = new Size(240, 40);
             btnCatalog.TabIndex = 3;
             btnCatalog.Text = "Catálogo";
             btnCatalog.TextAlign = ContentAlignment.MiddleLeft;
@@ -667,14 +663,14 @@
             pnlTitleNav.Location = new Point(0, 0);
             pnlTitleNav.Margin = new Padding(2);
             pnlTitleNav.Name = "pnlTitleNav";
-            pnlTitleNav.Size = new Size(223, 66);
+            pnlTitleNav.Size = new Size(240, 66);
             pnlTitleNav.TabIndex = 2;
             // 
             // pictureBox3
             // 
             pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox3.Image = Properties.Resources.user_nav;
-            pictureBox3.Location = new Point(174, 9);
+            pictureBox3.Location = new Point(191, 9);
             pictureBox3.Margin = new Padding(2);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(38, 51);
@@ -705,7 +701,7 @@
             pnlBreadcrums.Location = new Point(240, 64);
             pnlBreadcrums.Margin = new Padding(2);
             pnlBreadcrums.Name = "pnlBreadcrums";
-            pnlBreadcrums.Size = new Size(983, 60);
+            pnlBreadcrums.Size = new Size(1217, 60);
             pnlBreadcrums.TabIndex = 2;
             // 
             // btnExit
@@ -719,7 +715,7 @@
             btnExit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.exit_f5f5f5;
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(779, 11);
+            btnExit.Location = new Point(1013, 11);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(100, 40);
             btnExit.TabIndex = 3;
@@ -732,7 +728,7 @@
             // 
             lblItems.AutoSize = true;
             lblItems.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblItems.Location = new Point(156, 19);
+            lblItems.Location = new Point(194, 17);
             lblItems.Name = "lblItems";
             lblItems.Size = new Size(43, 19);
             lblItems.TabIndex = 2;
@@ -742,7 +738,7 @@
             // 
             lblMenu.AutoSize = true;
             lblMenu.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMenu.Location = new Point(85, 19);
+            lblMenu.Location = new Point(107, 17);
             lblMenu.Name = "lblMenu";
             lblMenu.Size = new Size(54, 19);
             lblMenu.TabIndex = 1;
@@ -764,14 +760,15 @@
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(240, 124);
             pnlContainer.Name = "pnlContainer";
-            pnlContainer.Size = new Size(983, 747);
+            pnlContainer.Size = new Size(1217, 931);
             pnlContainer.TabIndex = 3;
             // 
             // FrmContainerApps
             // 
-            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(1223, 871);
+            ClientSize = new Size(1457, 1055);
             Controls.Add(pnlContainer);
             Controls.Add(pnlBreadcrums);
             Controls.Add(pnlSideBarLeft);
