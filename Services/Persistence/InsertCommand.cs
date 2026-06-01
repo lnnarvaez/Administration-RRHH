@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.Common;
 using System.Windows.Input;
 
-namespace Administration_RRHH.Services
+namespace Administration_RRHH.Services.Persistence
 {
     /// <summary>
     /// Subclase para ejecutar operaciones INSERT.

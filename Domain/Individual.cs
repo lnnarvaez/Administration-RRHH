@@ -1,46 +1,68 @@
-﻿namespace Administration_RRHH.Domain
+﻿using System.Security.Permissions;
+
+namespace Administration_RRHH.Domain
 {
     public abstract class Individual
     {
-        //Declaración de propiedades para la clase Individual
-        public string IdNumber { get; set; }
+        /* -------------------------------------------------------------------------- */
+        /*                      Declaración de Propiedades                            */
+        /* -------------------------------------------------------------------------- */
+        public string IdNumber { get; set; } //Número de cédula
         public string Name { get; set; }
         public string Surname { get; set; }
-        public DateTime Birthdate { get; set; }
+        public DateOnly BirthDate { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-
-        //Constructor para la clase Individual sin parámetros
+        
+        /* -------------------------------------------------------------------------- */
+        /*                      Constructor                                         */
+        /* -------------------------------------------------------------------------- */
         public Individual()
         {
             IdNumber = string.Empty;
             Name = string.Empty;
             Surname = string.Empty;
-            Birthdate = DateTime.MinValue;
+            BirthDate = DateOnly.MinValue;
             Phone = string.Empty;
             Address = string.Empty;
         }
 
-        //Constructor para la clase Individual con parámetros
-        public Individual(string idNumber, string name, string surname, 
-                          DateTime birthdate, string phone, string address)
+        //Constructor para crear un individuo con todos sus atributos
+        public Individual(string IdNumber, string Name, string Surname,
+           DateOnly BirthDate, string Phone, string Address)
         {
-            IdNumber = idNumber;
-            Name = name;
-            Surname = surname;
-            Birthdate = birthdate;
-            Phone = phone;
-            Address = address;
+            IdNumber = IdNumber;
+            Name = Name;
+            Surname = Surname;
+            BirthDate = BirthDate;
+            Phone = Phone;
+            Address = Address;
         }
 
-        //Método abstracto para calcular la edad de la persona
-        protected abstract int CalculateAge();
+        /* -------------------------------------------------------------------------- */
+        /*                               Método                                */
+        /* -------------------------------------------------------------------------- */
 
-        //Método para validar la fecha de nacimiento
-        protected bool ValidateBirthdate(DateTime birthdate)
+        /// <summary>
+        /// Calcula la edad del individuo en base a su fecha de nacimiento. Este método toma la fecha actual y 
+        /// la fecha de nacimiento del individuo para determinar su edad actual. 
+        /// Si el cumpleaños del individuo aún no ha ocurrido este año, se resta un año de la edad calculada.
+        /// </summary>
+        /// <returns>Edad actual calculada del Invididuo</returns>
+        public int CalculateAge()
         {
-            return birthdate <= DateTime.Now;
+            DateOnly today = DateOnly.FromDateTime(DateTime.Today);
+            int age = today.Year - BirthDate.Year;
+            if (BirthDate > today.AddYears(-age))
+            {
+                age--;
+            }
+            return age;
         }
+
+        // Método abstracto para validar la fecha de nacimiento, se implementará en las clases derivadas
+        public abstract bool ValidateBirthDate(); 
+
 
     }//end-Class
 }//end-namespace

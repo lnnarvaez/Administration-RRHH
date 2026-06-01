@@ -262,5 +262,10 @@
         {
             this.Dispose(); //Cierra el formulario actual y libera los recursos asociados
         }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+
+        }
     }//end class
 } //end namespace

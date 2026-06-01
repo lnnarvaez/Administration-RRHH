@@ -18,7 +18,7 @@
 
         public FamilyReference(long familyReferencesId, long employeeFileId, string biologicalSex, 
             string relationship,
-                               string idNumber, string name, string surname, DateTime birthdate,
+                               string idNumber, string name, string surname, DateOnly birthdate,
                                string phone, string address) : 
                                base(idNumber, name, surname, birthdate, phone, address)
         {
@@ -27,21 +27,10 @@
             BiologicalSex = biologicalSex;
             Relationship = relationship;
         }
-        /// <summary>
-        /// Calcula la edad del familiar basándose en su fecha de nacimiento.
-        /// </summary>
-        /// <returns>La edad del familiar.</returns>
-        /// <exception cref="ArgumentException">Se lanza cuando la fecha de nacimiento es futura.</exception>
-        protected override int CalculateAge()
+
+        public override bool ValidateBirthDate()
         {
-            if (!ValidateBirthdate(Birthdate))
-            {
-                throw new ArgumentException("La fecha de nacimiento no puede ser futura.");
-            }
-            var today = DateTime.Today;
-            var age = today.Year - Birthdate.Year;
-            if (Birthdate.Date > today.AddYears(-age)) age--;
-            return age;
+            throw new NotImplementedException();
         }
     } //end-class
 }//end-namespace

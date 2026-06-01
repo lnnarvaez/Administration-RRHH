@@ -65,7 +65,7 @@
             btnEmployees = new Button();
             pnlCatalogSubMenu = new Panel();
             btnMunicipality = new Button();
-            btnDeparment = new Button();
+            btnDepartment = new Button();
             btnJobCategory = new Button();
             btnCatalog = new Button();
             pnlHeaderNav = new Panel();
@@ -174,7 +174,7 @@
             pnlBreadcrumbs.Location = new Point(240, 64);
             pnlBreadcrumbs.Margin = new Padding(4, 3, 4, 3);
             pnlBreadcrumbs.Name = "pnlBreadcrumbs";
-            pnlBreadcrumbs.Padding = new Padding(4, 4, 4, 4);
+            pnlBreadcrumbs.Padding = new Padding(4);
             pnlBreadcrumbs.Size = new Size(938, 48);
             pnlBreadcrumbs.TabIndex = 0;
             // 
@@ -190,7 +190,7 @@
             btnExit.Location = new Point(801, 9);
             btnExit.Margin = new Padding(0, 4, 56, 4);
             btnExit.Name = "btnExit";
-            btnExit.Padding = new Padding(4, 4, 4, 4);
+            btnExit.Padding = new Padding(4);
             btnExit.Size = new Size(88, 32);
             btnExit.TabIndex = 3;
             btnExit.Text = "Salir";
@@ -662,7 +662,7 @@
             // 
             pnlCatalogSubMenu.BackColor = Color.FromArgb(89, 93, 112);
             pnlCatalogSubMenu.Controls.Add(btnMunicipality);
-            pnlCatalogSubMenu.Controls.Add(btnDeparment);
+            pnlCatalogSubMenu.Controls.Add(btnDepartment);
             pnlCatalogSubMenu.Controls.Add(btnJobCategory);
             pnlCatalogSubMenu.Dock = DockStyle.Top;
             pnlCatalogSubMenu.Location = new Point(0, 102);
@@ -689,23 +689,24 @@
             btnMunicipality.TextAlign = ContentAlignment.MiddleLeft;
             btnMunicipality.UseVisualStyleBackColor = true;
             // 
-            // btnDeparment
+            // btnDepartment
             // 
-            btnDeparment.Cursor = Cursors.Hand;
-            btnDeparment.Dock = DockStyle.Top;
-            btnDeparment.FlatAppearance.BorderSize = 0;
-            btnDeparment.FlatStyle = FlatStyle.Flat;
-            btnDeparment.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDeparment.ForeColor = Color.FromArgb(246, 246, 248);
-            btnDeparment.Location = new Point(0, 42);
-            btnDeparment.Margin = new Padding(2);
-            btnDeparment.Name = "btnDeparment";
-            btnDeparment.Padding = new Padding(32, 0, 0, 0);
-            btnDeparment.Size = new Size(238, 42);
-            btnDeparment.TabIndex = 1;
-            btnDeparment.Text = "Geo - Departamentos ";
-            btnDeparment.TextAlign = ContentAlignment.MiddleLeft;
-            btnDeparment.UseVisualStyleBackColor = true;
+            btnDepartment.Cursor = Cursors.Hand;
+            btnDepartment.Dock = DockStyle.Top;
+            btnDepartment.FlatAppearance.BorderSize = 0;
+            btnDepartment.FlatStyle = FlatStyle.Flat;
+            btnDepartment.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDepartment.ForeColor = Color.FromArgb(246, 246, 248);
+            btnDepartment.Location = new Point(0, 42);
+            btnDepartment.Margin = new Padding(2);
+            btnDepartment.Name = "btnDepartment";
+            btnDepartment.Padding = new Padding(32, 0, 0, 0);
+            btnDepartment.Size = new Size(238, 42);
+            btnDepartment.TabIndex = 1;
+            btnDepartment.Text = "Geo - Departamentos ";
+            btnDepartment.TextAlign = ContentAlignment.MiddleLeft;
+            btnDepartment.UseVisualStyleBackColor = true;
+            btnDepartment.Click += btnDepartment_Click;
             // 
             // btnJobCategory
             // 
@@ -865,7 +866,7 @@
         private Button btnEmployees;
         private Panel pnlCatalogSubMenu;
         private Button btnMunicipality;
-        private Button btnDeparment;
+        private Button btnDepartment;
         private Button btnJobCategory;
         private Button btnCatalog;
         private Panel pnlHeaderNav;

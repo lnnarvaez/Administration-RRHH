@@ -3,66 +3,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace Administration_RRHH.Domain
 {
     internal class Region
     {
-        //Declaración de propiedades
-        public int RegionId { get; set; } //Identificador único de la región manejado por la base de datos
-        public string DepartmentCode { get; set; }
-        public string Description { get; set; }
-        public bool Disponibilidad { get; set; }
+        // -- --------------------------------------------------------------------------------------- -- */
+        //                          Declaración de propiedades de la clase Region
+        // -- --------------------------------------------------------------------------------------- -- */
+        public int RegionId { get; set; } //Manipulado directamente por la base de datos, no se asigna manualmente.
+        public string RegionCode { get; set; }
+        public string Description { get; set; } //Nombre de la región
+        public bool Enabled { get; set; } //Indica si la región está activa o no
 
-        //Constructor sin parametros que inicializa las propiedades con valores predeterminados
-        public Region ()
+        // -- --------------------------------------------------------------------------------------- -- */
+        //                          Declaración de Constructores de la clase Region
+        // -- --------------------------------------------------------------------------------------- -- */
+        public Region () 
         {
-            RegionId = 0;
-            DepartmentCode = string.Empty;
+            RegionCode = string.Empty;
             Description = string.Empty;
-            Disponibilidad = true;
+            Enabled = true;
         }
 
-        //Constructor con parámetros para inicializar las propiedades con valores específicos
-        public Region(int regionId, string departmentCode, string description, bool disponibilidad)
+        // Constructor con parámetros para facilitar la creación de objetos Region con datos específicos.
+        public Region(string regionCode, string description, bool enabled)
         {
-            RegionId = regionId;
-            DepartmentCode = departmentCode;
+            RegionCode = regionCode;
             Description = description;
-            Disponibilidad = disponibilidad;
+            Enabled = enabled;
         }
 
-        //Método para mostrar la información de la región
-        public List<Region> ShowInformation (string filter)
+        // -- --------------------------------------------------------------------------------------- -- */
+        //                          Metodos adicionales (si es necesario) para la clase Region
+        // -- --------------------------------------------------------------------------------------- -- */
+
+        public int AddRegion()
         {
-            //Imprime la información de la región
-            return new List<Region> { this };
+            // Lógica para agregar la región a la base de datos
+            // Retorna el ID de la nueva región creada
+            return 0; // Placeholder, se implementará la lógica real posteriormente
         }
 
-        public Region ShowInformation()
+        public Region GetRegionByCode(int filter)
         {
-            //Retorna la información de la región
-            return this;
+            // Lógica para obtener una región específica por su ID desde la base de datos
+            return new Region(); // Placeholder, se implementará la lógica real posteriormente
         }
 
-        public int SaveRegion()
+
+        public List<Region> ListRegion ()
         {
-            //Lógica para agregar la región a la base de datos
-            //Retorna el ID de la región agregada
-            return 0;
+            // Lógica para obtener una lista de regiones desde la base de datos
+            return new List<Region>(); // Placeholder, se implementará la lógica real posteriormente
         }
 
-        public int EditRegion()
-        {
-            //Lógica para actualizar la región en la base de datos
-            //Retorna el ID de la región actualizada
-            return 0;
-        }   
 
-        public int RemoveRegion()
+        public void ModificRegion(string code)
         {
-            return 0;
+            // Lógica para actualizar la información de la región en la base de datos
         }
+
+        public bool  InhabilityRegion ()
+        {
+            // Lógica para eliminar o deshabilitar la región en la base de datos
+            return true; // Placeholder, se implementará la lógica real posteriormente
+        } 
 
     }//end class
 }//end namespace

@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace Administration_RRHH.Services
+namespace Administration_RRHH.Services.Persistence
 {
     public class DeleteCommand : DatabaseConnection
     {

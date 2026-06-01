@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Data;
 
-namespace Administration_RRHH.Services
+namespace Administration_RRHH.Services.Persistence
 {
     /// <summary>
     /// Subclase para ejecutar consultas SELECT.
