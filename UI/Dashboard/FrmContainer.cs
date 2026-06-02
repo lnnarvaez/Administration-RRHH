@@ -1,4 +1,6 @@
-﻿namespace Administration_RRHH.UI.Dashboard
+﻿using Administration_RRHH.UI.Catalogs;
+
+namespace Administration_RRHH.UI.Dashboard
 {
     public partial class FrmContainer : Form
     {
@@ -265,7 +267,7 @@
 
         private void btnDepartment_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new RegionForm ());
         }
     }//end class
 } //end namespace

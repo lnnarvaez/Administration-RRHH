@@ -52,5 +52,31 @@ namespace Administration_RRHH.Services.Persistence
 
             return result;
         }// end of ExecuteSelect
+
+        public bool IsDuplicate (string query, SqlParameter[] parameters = null)
+        {
+            try
+            {
+                OpenConnection();
+
+                _command = new SqlCommand(query, _connection);
+                _command.CommandType = CommandType.Text;
+
+                if (parameters is not null)
+                    _command.Parameters.AddRange(parameters);
+
+                return Convert.ToBoolean(_command.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(
+                    $"Error al ejecutar consulta escalar. {ex.Message}", ex);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        } // end of IsDuplicate 
+
     }//End of class
 }//End of namespace

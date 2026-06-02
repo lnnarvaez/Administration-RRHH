@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
+﻿using Administration_RRHH.Services.Persistence;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace Administration_RRHH.Domain
 {
-    internal class Region
+    public class Region
     {
+        #region Propiedades
         // -- --------------------------------------------------------------------------------------- -- */
         //                          Declaración de propiedades de la clase Region
         // -- --------------------------------------------------------------------------------------- -- */
@@ -17,6 +15,9 @@ namespace Administration_RRHH.Domain
         public string Description { get; set; } //Nombre de la región
         public bool Enabled { get; set; } //Indica si la región está activa o no
 
+        #endregion
+
+        #region Constructores
         // -- --------------------------------------------------------------------------------------- -- */
         //                          Declaración de Constructores de la clase Region
         // -- --------------------------------------------------------------------------------------- -- */
@@ -35,15 +36,50 @@ namespace Administration_RRHH.Domain
             Enabled = enabled;
         }
 
+        #endregion
+
         // -- --------------------------------------------------------------------------------------- -- */
         //                          Metodos adicionales (si es necesario) para la clase Region
         // -- --------------------------------------------------------------------------------------- -- */
 
+        public bool isUniqueRegionCode(string dptCode)
+        {
+            // Lógica para verificar si el código de región es único en la base de datos
+            string sql = @"SELECT CASE
+                                  WHEN EXISTS(
+                                       SELECT 1
+                                       FROM Region 
+                                       WHERE DepartmentCode = @DptCode)
+                                       THEN 1 ELSE 0 END";
+
+            using SelectQuery select = new SelectQuery(); // Crear instancia de SelectQuery
+                                                          // para ejecutar la consulta SQL
+            SqlParameter[] parametros = {
+                                            new SqlParameter("@DptCode", SqlDbType.VarChar, 16) { Value = dptCode }
+            }; 
+            return select.IsDuplicate(sql, parametros);
+        }
+
+        /// <summary>
+        /// Agrega una nueva región a la base de datos utilizando el comando de inserción.
+        /// </summary>
+        /// <returns>Número de filas afectadas</returns>
+
         public int AddRegion()
         {
-            // Lógica para agregar la región a la base de datos
-            // Retorna el ID de la nueva región creada
-            return 0; // Placeholder, se implementará la lógica real posteriormente
+
+            using InsertCommand insert = new InsertCommand(); //Crear instancia de comando de
+                                                              //inserción para ejecutar la consulta SQL
+            string sql = @"INSERT INTO Region (DepartmentCode, Description) 
+                          VALUES (@DptCode, @Description)";
+
+            SqlParameter[] parametros = {
+                                            new SqlParameter("@DptCode", SqlDbType.VarChar, 16) { Value = this.RegionCode },
+                                            new SqlParameter("@Description", SqlDbType.VarChar, 32) { Value = this.Description }
+            };
+
+            return insert.ExecuteInsert(sql, parametros); //Ejecutar la consulta de inserción y retornar el número de filas afectadas
+
         }
 
         public Region GetRegionByCode(int filter)

@@ -15,7 +15,7 @@ namespace Administration_RRHH.Domain
         public string Address { get; set; }
         
         /* -------------------------------------------------------------------------- */
-        /*                      Constructor                                         */
+        /*                      Constructor                                           */
         /* -------------------------------------------------------------------------- */
         public Individual()
         {
@@ -26,17 +26,17 @@ namespace Administration_RRHH.Domain
             Phone = string.Empty;
             Address = string.Empty;
         }
-
+         
         //Constructor para crear un individuo con todos sus atributos
-        public Individual(string IdNumber, string Name, string Surname,
-           DateOnly BirthDate, string Phone, string Address)
+        public Individual (string idNumber, string name, string surname,
+           DateOnly birthDate, string phone, string address)
         {
-            IdNumber = IdNumber;
-            Name = Name;
-            Surname = Surname;
-            BirthDate = BirthDate;
-            Phone = Phone;
-            Address = Address;
+            this.IdNumber = idNumber;
+            this.Name = name;
+            this.Surname = surname;
+            this.BirthDate = birthDate;
+            this.Phone = phone;
+            this.Address = address;
         }
 
         /* -------------------------------------------------------------------------- */

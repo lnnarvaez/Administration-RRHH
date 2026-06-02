@@ -19,12 +19,21 @@ namespace Administration_RRHH.Services.BusinessLogic
 
         public int InsertEmployee()
         {
-           if (employee.AddEmployee() > 0)
-            return 1; //Pendiente de implementación con la base de datos
-           else
-            return 0;   
-        }
+           /* // VALIDACIÓN DE NEGOCIO (Seguridad e Integridad)
+            // Supongamos que "ValidarCorreoUnico" busca en la base de datos
+            if (ValidarCorreoUnico(cliente.Correo) == false)
+            {
+                throw new Exception("El correo electrónico ya se encuentra registrado por otro cliente.");
+            }
 
+            // Si pasa la regla, se envía a guardar en la base de datos
+            ClienteDAL datos = new ClienteDAL();
+            datos.Insertar(cliente);
+           */
+
+
+            return 0; 
+        }
 
         public Employee ReadEmployee(string idNumber)
         {
