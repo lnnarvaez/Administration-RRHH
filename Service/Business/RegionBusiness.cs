@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Administration_RRHH.Application
+namespace Administration_RRHH.Service.Business
 {
     internal class RegionBusiness
     {

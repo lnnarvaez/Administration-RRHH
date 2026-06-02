@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace Administration_RRHH.Service
+namespace Administration_RRHH.Service.Persistencia
 {
     /// <summary>
     /// Subclase para ejecutar consultas SELECT.

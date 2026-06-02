@@ -2,24 +2,20 @@
 using System.Data;
 using System.Data.Common;
 
-namespace Administration_RRHH.Service
+namespace Administration_RRHH.Service.Persistencia
 {
-    /// <summary>
-    /// Subclase para ejecutar operaciones UPDATE.
-    /// </summary>
-    public class UpdateCommand : DatabaseConnection
+    public class DeleteCommand : DatabaseConnection
     {
-
-        public UpdateCommand() : base() { }
-        public UpdateCommand(string connectionString) : base(connectionString) { }
+        public DeleteCommand() : base() { }
+        public DeleteCommand(string connectionString) : base(connectionString) { }
 
         /// <summary>
-        /// Ejecuta un UPDATE y devuelve el número de filas afectadas.
+        /// Ejecuta un DELETE y devuelve el número de filas eliminadas.
         /// </summary>
-        /// <param name="query">Sentencia UPDATE parametrizada.</param>
+        /// <param name="query">Sentencia DELETE parametrizada.</param>
         /// <param name="parameters">Parámetros SQL.</param>
-        /// <returns>Número de filas modificadas.</returns>
-        public int ExecuteUpdate(string query, SqlParameter[]? parameters = null)
+        /// <returns>Número de filas eliminadas.</returns>
+        public int ExecuteDelete(string query, SqlParameter[]? parameters = null)
         {
             try
             {
@@ -34,14 +30,14 @@ namespace Administration_RRHH.Service
                 int rowsAffected = _command.ExecuteNonQuery();
 
                 if (rowsAffected == 0)
-                    throw new Exception("El UPDATE no afectó ningún registro. " +
+                    throw new Exception("El DELETE no eliminó ningún registro. " +
                                         "Verifica que el ID exista en la base de datos.");
 
                 return rowsAffected;
             }
             catch (SqlException ex)
             {
-                throw new Exception($"Error SQL al ejecutar UPDATE: {ex.Message}", ex);
+                throw new Exception($"Error SQL al ejecutar DELETE: {ex.Message}", ex);
             }
             finally
             {
@@ -50,4 +46,4 @@ namespace Administration_RRHH.Service
         }
 
     } //end class
-}//end namespace
+} //end namespace

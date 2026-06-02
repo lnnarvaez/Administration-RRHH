@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace Administration_RRHH.Service
+namespace Administration_RRHH.Service.Persistencia
 {
     /// <summary>
     /// Subclase para ejecutar operaciones INSERT.

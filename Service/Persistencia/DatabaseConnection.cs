@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-namespace Administration_RRHH.Service
+namespace Administration_RRHH.Service.Persistencia
 {
     /// <summary>
     /// Superclase base para el acceso a SQL Server 2022.
