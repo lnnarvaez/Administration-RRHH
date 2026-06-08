@@ -669,6 +669,7 @@
             btnMunicipality.Text = "Municipios";
             btnMunicipality.TextAlign = ContentAlignment.MiddleLeft;
             btnMunicipality.UseVisualStyleBackColor = true;
+            btnMunicipality.Click += btnMunicipality_Click;
             // 
             // btnDepartment
             // 

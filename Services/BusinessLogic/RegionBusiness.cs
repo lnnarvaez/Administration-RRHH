@@ -1,24 +1,36 @@
-﻿using Region = Administration_RRHH.Domain.Region;
+﻿using Regions = Administration_RRHH.Domain.Regions;
 
 namespace Administration_RRHH.Services.BusinessLogic
 {
     internal class RegionBusiness
     {
+        #region Campos
         /* -- -------------------------------------------------------------------------------------------- -- */
         /*                          Declaración de métodos de la clase RegionBusiness                         */
         /* -- -------------------------------------------------------------------------------------------- -- */
 
-        private Region _region;
+        private Regions _region;
 
+        #endregion
+
+        #region Constructors
         /* -- -------------------------------------------------------------------------------------------- -- */
         /*                          Constructor
         /* -- -------------------------------------------------------------------------------------------- -- */
 
-        public RegionBusiness (Region region)
-        {
-            _region = region;
+        public RegionBusiness() 
+        { 
+            _region = new Regions();
         }
 
+        public RegionBusiness (Regions regions)
+        {
+            _region = regions;
+        }
+
+        #endregion
+
+        #region Methods
         public int AddRegion ()
         {
             //Si ya existe una región con el mismo código, lanzar una excepción para evitar duplicados
@@ -32,5 +44,18 @@ namespace Administration_RRHH.Services.BusinessLogic
             return _region.AddRegion();  
         }//end AddRegion
 
+        public List<Regions>? ReadRegions()
+        {
+            try
+            {
+                return _region.ListRegion();
+            }
+            catch (Exception ex)            
+            {
+                throw new Exception("Intento fallido al leer las regiones.", ex);
+            } //end try-catch
+
+        }
+        #endregion 
     }//End class
 } //End namespace

@@ -83,6 +83,26 @@ namespace Administration_RRHH.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_48 {
+            get {
+                object obj = ResourceManager.GetObject("delete_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_48 {
+            get {
+                object obj = ResourceManager.GetObject("edit_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exit_f5f5f5 {
             get {
                 object obj = ResourceManager.GetObject("exit_f5f5f5", resourceCulture);
@@ -156,6 +176,16 @@ namespace Administration_RRHH.Properties {
         internal static System.Drawing.Bitmap menu_icons1 {
             get {
                 object obj = ResourceManager.GetObject("menu-icons1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_1 {
+            get {
+                object obj = ResourceManager.GetObject("search_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

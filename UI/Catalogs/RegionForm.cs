@@ -9,6 +9,14 @@ namespace Administration_RRHH.UI.Catalogs
             InitializeComponent();
         }
 
+        public RegionForm(Domain.Regions region)
+        {
+            InitializeComponent();
+            // Cargar los datos de la región en los campos del formulario
+            mskRegionCode.Text = region.RegionCode;
+            txtRegionName.Text = region.Description;
+        }
+
         // Regresar el estado de input a su estado inicial
         private void clearInputs()
         {
@@ -41,7 +49,7 @@ namespace Administration_RRHH.UI.Catalogs
             {
 
                 // lógica para registrar la región en tu base de datos o sistema
-                Domain.Region newRegion = new Domain.Region(); //Domain .Region es la clase que representa la entidad Región en tu dominio
+                Domain.Regions newRegion = new Domain.Regions(); //Domain .Region es la clase que representa la entidad Región en tu dominio
                 newRegion.RegionCode = mskRegionCode.Text.Trim();
                 newRegion.Description = txtRegionName.Text.Trim();
 
@@ -66,12 +74,17 @@ namespace Administration_RRHH.UI.Catalogs
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //Confirmar la cancelación antes de limpiar los campos
-            if (DialogResult.Yes == MessageBox.Show("¿Está seguro que desea cancelar el registro?", 
-                                                    "Confirmar Cancelación", MessageBoxButtons.YesNo, 
+            if (DialogResult.Yes == MessageBox.Show("¿Está seguro que desea cancelar el registro?",
+                                                    "Confirmar Cancelación", MessageBoxButtons.YesNo,
                                                     MessageBoxIcon.Question))
             {
                 clearInputs(); // Limpiar los campos si el usuario confirma la cancelación
             }
+        }
+
+        private void btnClosed_Click(object sender, EventArgs e)
+        {
+            this.Dispose(); // Cierra el formulario actual
         }
     }//end class
 } //end namespace

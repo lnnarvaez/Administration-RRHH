@@ -21,8 +21,8 @@ namespace Administration_RRHH.Services.Persistence
         /// </summary>
         /// <param name="query">Consulta SQL Parametrizada</param>
         /// <param name="parameters">Parámetros SQL (previene inyección de SQL)</param>
-        /// <returns>DataTable con los resultados</returns>
-        public DataTable ExecuteSelect (string query, SqlParameter[] parameters = null)
+        /// <returns>SqlDataReader  con los resultados</returns>
+        public SqlDataReader ExecuteSelect (string query, SqlParameter[] parameters = null)
         {
             DataTable result = new DataTable();
 
@@ -30,28 +30,26 @@ namespace Administration_RRHH.Services.Persistence
 
             {
                 OpenConnection();
-                _command = new SqlCommand(query, _connection);
-                _command.CommandType = CommandType.Text;
 
+                _command = new SqlCommand(query, _connection)
+                {
+                    CommandType = CommandType.Text,
+                };
+
+                //Validar si se encuentran parametros para agregar a la consulta
                 if (parameters is not null)
                     _command.Parameters.AddRange(parameters);
 
-                using SqlDataAdapter adapter = new SqlDataAdapter(_command);
-                adapter.Fill(result); // Llenar el DataTable con los resultados de la consulta
+                return _command.ExecuteReader(CommandBehavior.CloseConnection);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                throw new Exception($"Error al intentar obtener resultados " +
-                    $"{ex.Message}", ex);
-            }
-            finally
-            { 
-                CloseConnection(); //Cerrar la conexión en el bloque finally
-                                   //para asegurar que se ejecute siempre
+                CloseConnection(); // Asegurar que la conexión se cierre en caso de error
+                throw new Exception($"Error al intentar obtener resultados", ex);
             }
 
-            return result;
-        }// end of ExecuteSelect
+
+            }// end of ExecuteSelect
 
         public bool IsDuplicate (string query, SqlParameter[] parameters = null)
         {
