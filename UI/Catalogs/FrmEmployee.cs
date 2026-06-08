@@ -15,32 +15,41 @@ namespace Administration_RRHH
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            // Normalizar posibles nulls de los controles antes de asignar a propiedades no anulables
-            _employee.IdentityCard = mskCedula.Text ?? string.Empty;
-            _employee.Name = txtName.Text ?? string.Empty;
-            _employee.Surname = txtSurname.Text ?? string.Empty;
-            //Obtener la fecha del DateTimePicker, no es nullable
-            DateTime birthDate = dtBirthDate.Value;
-            // Convertir a DateOnly y asignar a la propiedad BirthDate
-            _employee.BirthDate = DateOnly.FromDateTime(birthDate);
-            // Evitar desreferencia de SelectedItem si es null
-            _employee.MaritalStatus = cmbMaritalStatus.SelectedItem?.ToString() ?? string.Empty;
-            string children = cmbChildren.SelectedItem?.ToString() ?? "0";
-            _employee.NumberChildren = Convert.ToInt32(children); //Convertir a entero
-            _employee.Address = txtAddress.Text ?? string.Empty;
-
-            // Asignar 0 si no se selecciona nada
-            _employee.Email = txtEmail.Text ?? string.Empty;
-            _employee.Phone = txtPhone.Text ?? string.Empty;
-
-            if (_employee.AddEmployee())
+            // 1. VALIDACIÓN LOCAL (Formulario) - Práctico e inmediato
+            /*if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("Empleado registrado correctamente");
+                MessageBox.Show("El nombre es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+            if (!txtCorreo.Text.Contains("@"))
             {
-                MessageBox.Show("Error al registrar el empleado");
-            }//end if-else
+                MessageBox.Show("El correo no tiene un formato válido.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // 2. CAPTURA
+                Cliente nuevoCliente = new Cliente
+                {
+                    Nombre = txtNombre.Text.Trim(),
+                    Correo = txtCorreo.Text.Trim(),
+                    Telefono = txtTelefono.Text.Trim()
+                };
+
+                // 3. ENVÍO A LA LÓGICA
+                ClienteService clienteService = new ClienteService();
+                clienteService.RegistrarCliente(nuevoCliente);
+
+                MessageBox.Show("Registro guardado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                // Aquí cae si la Lógica de Negocio encuentra un problema (ej. Correo duplicado)
+                MessageBox.Show(ex.Message, "Error de Negocio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+
         }
 
         private void btnListEmployees_Click(object sender, EventArgs e)
