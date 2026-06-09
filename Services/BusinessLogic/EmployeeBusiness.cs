@@ -1,48 +1,50 @@
 ﻿using Administration_RRHH.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Administration_RRHH.Services.BusinessLogic
 {
     internal class EmployeeBusiness
     {
-        Employee employee; //Instancia de la clase Employee para realizar
-                           //operaciones relacionadas con los empleados
+        private readonly Employee _employee; //Instancia de la clase Employee para realizar
+                                             //operaciones relacionadas con los empleados
 
         public EmployeeBusiness ()
         {
-            employee = new Employee ();
+            _employee = new Employee ();
         }
 
-        public int InsertEmployee()
+        public EmployeeBusiness(Employee employee)
         {
-           /* // VALIDACIÓN DE NEGOCIO (Seguridad e Integridad)
-            // Supongamos que "ValidarCorreoUnico" busca en la base de datos
-            if (ValidarCorreoUnico(cliente.Correo) == false)
+            _employee = employee;
+        }
+
+        public int AddEmployee()
+        {
+            if (_employee.ExistsByField(nameof(Employee.IdNumber), _employee.IdNumber))
+                throw new Exception($"El número de identificación '{_employee.IdNumber}' ya existe.");
+
+            if (_employee.ExistsByField(nameof(Employee.Inss), _employee.Inss))
+                throw new Exception($"El número INSS '{_employee.Inss}' ya existe.");
+
+            if (!string.IsNullOrWhiteSpace(_employee.Email)
+                && _employee.ExistsByField(nameof(Employee.Email), _employee.Email))
+                throw new Exception($"El correo electrónico '{_employee.Email}' ya existe.");
+
+            if (_employee.ExistsByField(nameof(Employee.Phone), _employee.Phone))
+                throw new Exception($"El teléfono '{_employee.Phone}' ya existe.");
+
+            return _employee.InsertEmployee(); //Retorna el número de filas afectadas por la inserción
+        }
+
+        public List<Employee> ListEmployees()
+        {
+            try
             {
-                throw new Exception("El correo electrónico ya se encuentra registrado por otro cliente.");
+                return _employee.ReadEmployee(); //Pendiente de implementación con la base de datos
             }
-
-            // Si pasa la regla, se envía a guardar en la base de datos
-            ClienteDAL datos = new ClienteDAL();
-            datos.Insertar(cliente);
-           */
-
-
-            return 0; 
-        }
-
-        public Employee ReadEmployee(string idNumber)
-        {
-            return new Employee(); //Pendiente de implementación con la base de datos
-        }       
-
-        public List<Employee> ListEmployees(int pageNumber)
-        {
-            return new List<Employee>(); //Pendiente de implementación con la base de datos
+            catch (Exception ex)
+            {
+                throw new Exception("Intento fallido al leer Empleados.", ex);
+            } //end try-catch
         }
 
         public int UpdateEmployee(string idNumber)

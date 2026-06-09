@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnClosed = new Button();
             label1 = new Label();
             label2 = new Label();
             mskRegionCode = new MaskedTextBox();
@@ -37,7 +38,6 @@
             chkEnable = new CheckBox();
             btnRegister = new Button();
             btnCancel = new Button();
-            btnClosed = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,12 +52,22 @@
             panel1.Size = new Size(671, 56);
             panel1.TabIndex = 0;
             // 
+            // btnClosed
+            // 
+            btnClosed.Image = Properties.Resources.exit_f5f5f51;
+            btnClosed.Location = new Point(616, 5);
+            btnClosed.Name = "btnClosed";
+            btnClosed.Size = new Size(48, 48);
+            btnClosed.TabIndex = 1;
+            btnClosed.UseVisualStyleBackColor = true;
+            btnClosed.Click += btnClosed_Click;
+            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(235, 236, 238);
-            label1.Location = new Point(31, 6);
+            label1.Location = new Point(31, 16);
             label1.Name = "label1";
             label1.Size = new Size(246, 25);
             label1.TabIndex = 0;
@@ -140,16 +150,6 @@
             btnCancel.Text = "Cancelar";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
-            // 
-            // btnClosed
-            // 
-            btnClosed.Image = Properties.Resources.exit_f5f5f51;
-            btnClosed.Location = new Point(616, 5);
-            btnClosed.Name = "btnClosed";
-            btnClosed.Size = new Size(48, 48);
-            btnClosed.TabIndex = 1;
-            btnClosed.UseVisualStyleBackColor = true;
-            btnClosed.Click += btnClosed_Click;
             // 
             // RegionForm
             // 

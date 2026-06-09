@@ -34,7 +34,8 @@ namespace Administration_RRHH.UI.Catalogs
 
             //Validar que  los campos de Municipios no estén vacíos
             if (string.IsNullOrWhiteSpace(txtCode.Text) ||
-                string.IsNullOrWhiteSpace(txtMunicipality.Text))
+                string.IsNullOrWhiteSpace(txtMunicipality.Text) ||
+                cmbDepartament.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, complete todos los campos faltantes.", "Campos Incompletos",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -49,7 +50,7 @@ namespace Administration_RRHH.UI.Catalogs
                 {
                     MunicipalityCode = txtCode.Text.Trim(),
                     MunicipalityName = txtMunicipality.Text.Trim(),
-                    RegionId  = (Regions)cmbDepartament.SelectedItem // Obtener el objeto Region seleccionado
+                    RegionId  = (Regions)cmbDepartament.SelectedItem // Cast directo ya que validamos que no es null
                 };
 
                 MunicipalityBusiness municipalityBusiness = new MunicipalityBusiness(newMunicipality); //Inicializar con el objeto actual
@@ -61,8 +62,7 @@ namespace Administration_RRHH.UI.Catalogs
                     MessageBox.Show("El nuevo Municipio fue registrado exitosamente.", "Operación Exitosa",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                // clearInputs(); // Limpiar los campos después del registro
-
+                
             }
             catch (Exception logic)
             {

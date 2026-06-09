@@ -6,6 +6,11 @@ namespace Administration_RRHH.Services.BusinessLogic
     {
         private Municipality _municipality;
 
+        public MunicipalityBusiness () 
+        { 
+            _municipality = new Municipality();
+        }
+
         public MunicipalityBusiness(Municipality municipality)
         {
             _municipality = municipality;
@@ -23,6 +28,18 @@ namespace Administration_RRHH.Services.BusinessLogic
 
             // Si el código de municipio es único, proceder a agregar el nuevo municipio a la base de datos
             return _municipality.InsertMunicipality();
+        }
+
+        public List<Municipality>? ReadMunicipalities()
+        {
+            try
+            {
+                return _municipality.ListMunicipality();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Intento fallido al leer los municipios.", ex);
+            } //end try-catch
         }
 
         #endregion

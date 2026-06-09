@@ -4,6 +4,7 @@ namespace Administration_RRHH.Domain
 {
     public abstract class Individual
     {
+        #region Properties
         /* -------------------------------------------------------------------------- */
         /*                      Declaración de Propiedades                            */
         /* -------------------------------------------------------------------------- */
@@ -13,7 +14,9 @@ namespace Administration_RRHH.Domain
         public DateOnly BirthDate { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-        
+        #endregion
+
+        #region Constructs 
         /* -------------------------------------------------------------------------- */
         /*                      Constructor                                           */
         /* -------------------------------------------------------------------------- */
@@ -38,7 +41,9 @@ namespace Administration_RRHH.Domain
             this.Phone = phone;
             this.Address = address;
         }
+        #endregion
 
+        #region Methods
         /* -------------------------------------------------------------------------- */
         /*                               Método                                */
         /* -------------------------------------------------------------------------- */
@@ -61,8 +66,8 @@ namespace Administration_RRHH.Domain
         }
 
         // Método abstracto para validar la fecha de nacimiento, se implementará en las clases derivadas
-        public abstract bool ValidateBirthDate(); 
+        public abstract bool ValidateBirthDate();
 
-
+        #endregion
     }//end-Class
 }//end-namespace

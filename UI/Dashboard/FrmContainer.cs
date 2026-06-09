@@ -268,7 +268,7 @@ namespace Administration_RRHH.UI.Dashboard
         private void btnDepartment_Click(object sender, EventArgs e)
         {
             //OpenChildForm(new RegionForm());
-            OpenChildForm (new RegionsMainForm());
+            OpenChildForm(new RegionsMainForm());
         }
 
         private void btnMunicipality_Click(object sender, EventArgs e)
@@ -276,5 +276,14 @@ namespace Administration_RRHH.UI.Dashboard
             OpenChildForm(new MunicipalityForm());
         }
 
+        private void btnEmployeeRegister_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmEmployee());
+        }
+
+        private void btnListEmployee_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new EmployeeListForm());
+        }
     }//end class
 } //end namespace

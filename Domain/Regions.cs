@@ -1,7 +1,6 @@
 ﻿using Administration_RRHH.Services.Persistence;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Administration_RRHH.Domain
 {
@@ -146,7 +145,7 @@ namespace Administration_RRHH.Domain
             using SqlDataReader reader = select.ExecuteSelect(sql);
 
             // Verificar si result es null
-            if (!reader.Read())
+            if (!reader.HasRows)
             {
                 throw new Exception("No se han encontrado Departamentos Disponibles");
             }
@@ -167,7 +166,6 @@ namespace Administration_RRHH.Domain
             //Retornar la lista de regiones obtenida
             return regionSelected;
         }
-
 
         public void ModificRegion(string code)
         {

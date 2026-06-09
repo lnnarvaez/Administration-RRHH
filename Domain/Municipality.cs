@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Administration_RRHH.Domain
 {
-    internal class Municipality
+    public class Municipality
     {
        
         //Encapular atributo de navegación para la propiedad Region
@@ -17,8 +17,8 @@ namespace Administration_RRHH.Domain
         /*      Definición de propiedades para la clase MunicipalityModels.       */
         /* -- ---------------------------------------------------------------- -- */
         public int MunicipalityId { get; set; }
-        public required string MunicipalityCode { get; set; }
-        public required string MunicipalityName { get; set; }
+        public string MunicipalityCode { get; set; }
+        public string MunicipalityName { get; set; }
         public bool IsEnable { get; set; }
 
         //Establecer la propiedad de navegación para la región asociada a este municipio.
@@ -63,6 +63,8 @@ namespace Administration_RRHH.Domain
         public Municipality(int RegionId)
         {
             _regionId = RegionId;
+            MunicipalityCode = string.Empty; 
+            MunicipalityName = string.Empty;
         }
 
         public Municipality(int municipalityId, string municipalityCode,
@@ -131,6 +133,45 @@ namespace Administration_RRHH.Domain
 
             return rows; // Retorna el número de filas afectadas por la inserción, cero si no se insertó nada
         }
+
+        public List<Municipality> ListMunicipality ()
+        {
+            // Lógica para obtener una lista de regiones desde la base de datos
+            string sql = @"SELECT Municipality_id,
+		                   MunicipalityCode,
+		                   MunicipalityName,
+		                   Enable
+                           FROM Municipality WHERE Enable = 1;";
+
+            //Crear una instancia de la clase SelectQuery para aplicar la consulta
+            using SelectQuery select = new SelectQuery();
+
+            //Asignar los datos obtenidos para procesar en el retorno del método
+            using SqlDataReader reader = select.ExecuteSelect(sql);
+
+            // Verificar si result es null
+            if (!reader.HasRows)
+            {
+                throw new Exception("No se han encontrado Municipios Disponibles");
+            }
+            //Definir una lista para almacenar los datos encontrados y retornarla
+            List<Municipality> municipalitySelected = new List<Municipality>();
+
+            //Recorrer el objeto reader con los elementos recuperados
+            while (reader.Read())
+            {
+                municipalitySelected.Add(new Municipality
+                {
+                    MunicipalityId = reader.GetInt32(0),                    
+                    MunicipalityCode = reader.GetString(1),
+                    MunicipalityName = reader.GetString(2),
+                    IsEnable = reader.GetBoolean(3)
+                });
+            }//end while
+            //Retornar la lista de municipios obtenida
+            return municipalitySelected ;
+        }
+
 
         #endregion
     }//end class
