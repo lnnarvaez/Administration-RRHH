@@ -1,184 +1,100 @@
-﻿namespace Administration_RRHH.Models
+﻿using Administration_RRHH.Service.Persistencia;
+using Administration_RRHH.UI.Catalogs;
+using Microsoft.Data.SqlClient;
+using System.Data;
+
+namespace Administration_RRHH.Models
 {
-    public class Employee
+    public class Employee : Individual
     {
-        /* ---------------------------------------------------------------- */
-        /*     Campos o Atributos de la Clase                               */
-        /* -----------------------------------------------------------------*/
-        private string _name;
-        private string _surname;
-        private string _identityCard;
-        private string _address;
-        private System.DateOnly _birthDate;
-        private string _maritalStatus;
-        private int _numberChildren;
-        private string _email;
-        private string _phone;
-        private bool _status;
+        #region Properties
+        public Municipality Municipality_Id { get; set; }
+        public MaritalStatus MaritalStatus_Id { get; set; }
+        public string Inss { get; set; } //Número de seguro social
+                                        
+        public string Email { get; set; }
+        public int NumberChildren { get; set; }
 
-        /* ---------------------------------------------------------------- */
-        /*     Constructor para nuevas instancias                           */
-        /* -----------------------------------------------------------------*/
-        public Employee()
+        public bool isEnabled { get; set; }
+
+        #endregion
+
+        #region Constructs
+        public Employee() : base()
         {
-            //Definir el estado valido del objeto, por ejemplo:
-            this._identityCard = string.Empty;
-            this._name = string.Empty;
-            this._surname = string.Empty;
-            this._birthDate = DateOnly.FromDateTime(System.DateTime.Now);//Tomar la fecha actual como valor por defecto
-            this._maritalStatus = string.Empty;
-            this._numberChildren = 0;
-            this._email = string.Empty;
-            this._phone = string.Empty;
-            this._address = string.Empty;
+            Municipality_Id = new Municipality();
+            MaritalStatus_Id = new MaritalStatus();
+            Inss = string.Empty;
+            Email = string.Empty;
+            NumberChildren = 0;
+            isEnabled = true;
         }
 
-        //Definir un constructor con parámetros para facilitar la creación de objetos Employee, por ejemplo:
-        public Employee(string name, string surname, string identityCard, string address, 
-            System.DateOnly birthDate, string maritalStatus, 
-            int numberChildren, string email, string phone, bool status)
+        public Employee(string idNumber, string name, string surname, DateOnly birthDate,
+            string phone, string address, Municipality municipality_Id,
+            MaritalStatus maritalStatus_Id, string inss, string email,
+            int numberChildren, bool isEnabled) : base(idNumber, name, surname,
+            birthDate, phone, address)
         {
-            _name = name;
-            _surname = surname;
-            _identityCard = identityCard;
-            _address = address;
-            _birthDate = birthDate;
-            _maritalStatus = maritalStatus;
-            _numberChildren = numberChildren;
-            _email = email;
-            _phone = phone;
-            _status = status;
+            this.Municipality_Id = municipality_Id;
+            this.MaritalStatus_Id = maritalStatus_Id;
+            this.Inss = inss;
+            this.Email = email;
+            this.NumberChildren = numberChildren;
+            this.isEnabled = isEnabled;
         }
+        #endregion
 
-        /* ---------------------------------------------------------------- */
-        /*     Propiedades para instancias de Employee                     */
-        /* -----------------------------------------------------------------*/
-        public string Address
+        #region Methods
+        public override bool ValidateBirthDate()
         {
-            get => _address;
-            set
+            //Validar que la fecha de nacimiento sea una fecha valida.
+            if (BirthDate > DateOnly.FromDateTime(DateTime.Today))
             {
-                //Validar el valor de la dirección, por ejemplo:
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new System.ArgumentException("La dirección no puede estar vacía.");
-                }//End if
-                _address = value; //Asignar el valor a la variable de instancia
+                return false;
             }
-        }
+            return true;
+        }//end method
 
-        public System.DateOnly BirthDate
+        public int InsertEmployee ()
         {
-            get => _birthDate;
-            set
+            int rows = 0; //Variable para almacenar el número de filas afectadas por la operación de inserción
+
+            try
             {
-            }
-        }
+                // Crear una instancia de InsertCommand para ejecutar la consulta de inserción
+                using InsertCommand insert = new InsertCommand();
 
-        public string Email
-        {
-            get => Email;
-            set
+                //Definir la consulta SQL para insertar un nuevo empleado en la base de datos
+                string sql = @"INSERT INTO Employees (IdNumber, Name, Surname, BirthDate, Phone, Address, Municipality_Id, 
+                               MaritalStatus_Id, Inss, Email, NumberChildren, isEnabled)
+                               VALUES (@IdNumber, @Name, @Surname, @BirthDate, @Phone, @Address, @Municipality_Id, 
+                               @MaritalStatus_Id, @Inss, @Email, @NumberChildren, @isEnabled)";
+
+                //Definir los parametros para la consulta SQL utilizando las propiedades del objeto Employee
+                SqlParameter[] parameters =
+                    {
+                        new SqlParameter ("@Municipality_Id", SqlDbType.Int) { Value = Municipality_Id.Id },
+                        new SqlParameter ("@MaritalStatus_Id", SqlDbType.Int) { Value = MaritalStatus_Id.Id },
+                        new SqlParameter ("@Inss", SqlDbType.VarChar) { Value = Inss },
+                        new SqlParameter ("@Email", SqlDbType.VarChar) { Value = Email },
+                        new SqlParameter ("@NumberChildren", SqlDbType.Int) { Value = NumberChildren },
+                        new SqlParameter ("@isEnabled", SqlDbType.Bit) { Value = isEnabled }
+                    };
+                //Ejecutar la consulta de inserción utilizando el método ExecuteInsert de la clase InsertCommand
+                rows = insert.ExecuteInsert(sql, parameters);
+
+            }
+            catch (Exception ex)
             {
-                //Validar el formato del correo electrónico, por ejemplo:
-                if (!value.Contains("@"))
-                {
-                    throw new System.ArgumentException("El correo electrónico no es válido.");
-                }//End if
-                _email = value; 
+                throw new Exception("Error al insertar el empleado: " + ex.Message);
             }
+
+            //retornar las filas afectas
+            return rows;
         }
 
-        public string IdentityCard
-        {
-            get => _identityCard;
-            set
-            {
-            }
-        }
+        #endregion  
 
-        public string MaritalStatus
-        {
-            get => _maritalStatus;
-            set
-            {
-            }
-        }
-
-        public string Name
-        {
-            get => _name;
-            set
-            {
-            }
-        }
-
-        public string Phone
-        {
-            get => _phone;
-            set
-            {
-            }
-        }
-
-        public string Surname
-        {
-            get => _surname;
-            set
-            {
-            }
-        }
-
-        public int NumberChildren
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public bool Status
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-
-        public bool AddEmployee()
-        {
-            //Implementar la lógica para agregar un nuevo empleado a la base de datos o a una colección, por ejemplo:
-            var newEmployee = new List<Employee>(); //Crear una nueva lista de empleados
-            newEmployee.Add(this);
-
-            if (newEmployee.Count > 0)
-            
-                {
-                    return true; //Empleado agregado exitosamente
-                }//End if
-
-                return false;   //No se pudo agregar el empleado
-        }
-
-        public bool TerminateEmployee(string id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Employee ReadEmployee(string id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public System.Collections.Generic.IEnumerable<Employee> ListEmployee()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool UpdateEmployee(string id)
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-}
+    }//end class
+}//end namespace
