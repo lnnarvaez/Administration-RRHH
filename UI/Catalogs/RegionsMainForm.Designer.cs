@@ -127,12 +127,13 @@
             btnEdit.Cursor = Cursors.Hand;
             btnEdit.FlatAppearance.BorderSize = 0;
             btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Image = Properties.Resources.delete_48;
+            btnEdit.Image = Properties.Resources.edit_48;
             btnEdit.Location = new Point(731, 141);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(56, 56);
             btnEdit.TabIndex = 14;
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -141,7 +142,7 @@
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 0, 0, 0);
             btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Image = Properties.Resources.edit_48;
+            btnDelete.Image = Properties.Resources.delete_48;
             btnDelete.Location = new Point(823, 141);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(56, 56);

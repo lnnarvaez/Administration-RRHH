@@ -59,6 +59,11 @@ namespace Administration_RRHH.UI.Catalogs
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
             //MessageBox.Show("Funcionalidad Edición en pruieba:" + selectedRegion.Description);
             RegionForm regionModals = new RegionForm(selectedRegion);
             //Buscar el centro de la pantalla para mostrar el formulario modal

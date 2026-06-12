@@ -15,15 +15,25 @@ namespace Administration_RRHH
             _employee = new Employee();
         }
 
+        /// <summary>
+        /// Constructor sobrecargado para cargar los datos de un empleado existente en el formulario
+        /// </summary>
+        /// <param name="employee">Instancia del empleado a cargar</param>
+        public FrmEmployee(Employee employee)
+        {
+            InitializeComponent();
+            _employee = employee; // Asignar el empleado pasado como parámetro a la variable de clase
+        }
+
         private void MunicipalityLoad()
         {
             //Crear una instancia de la clase MuniciapalityBusiness           
             MunicipalityBusiness mBusiness = new MunicipalityBusiness();
 
             // Configurar el ComboBox con DataSource para vincular objetos completos
-            cmbMunicipality.DataSource = mBusiness.ReadMunicipalities();
-            cmbMunicipality.DisplayMember = "MunicipalityName";  // Propiedad que se muestra al usuario
-            cmbMunicipality.ValueMember = "MunicipalityId";    // Propiedad del valor asociado (Municipality_Id)            
+            cmbMunicipality.DataSource = mBusiness.ReadMunicipalities(); //Lista Municipios
+            cmbMunicipality.DisplayMember = "MunicipalityName";  // Propiedad que se muestra al usuario 
+            cmbMunicipality.ValueMember = "MunicipalityId";    // Propiedad del valor asociado (Municipality_Id)    
         }
 
         private void MaritalStatusLoad()
@@ -65,6 +75,61 @@ namespace Administration_RRHH
 
             //Cargar los estados civiles en el ComboBox al cargar el formulario
             MaritalStatusLoad();
+
+            //Cargar la información del objeto Employee cuando se recibe como parámetro en el constructor
+            //Para ello se identifica si el objeto contiene información de la cédula
+            if (!string.IsNullOrEmpty(_employee.IdNumber))
+            {
+                dpkBirthDay.MaxDate = DateTime.Today; // Establecer la fecha mÃ¡xima permitida para el DateTimePicker
+                this.mskCedula.Text = _employee.IdNumber;
+                this.mskInss.Text = _employee.Inss;
+                this.txtName.Text = _employee.Name;
+                this.txtSurname.Text = _employee.Surname;
+                // Convertir BirthDate de DateOnly a DateTime para asignarlo al DateTimePicker
+                this.dpkBirthDay.Value = _employee.BirthDate.ToDateTime(TimeOnly.MinValue);
+                cmbChildren.SelectedItem = _employee.NumberChildren.ToString();
+                this.mskPhone.Text = _employee.Phone;
+                this.txtEmail.Text = _employee.Email;
+                this.txtAddress.Text = _employee.Address;
+
+                //Instrucción LinQ que busca el índice del municipio en el ComboBox que
+                //coincide con el municipio del empleado y lo asigna al SelectedIndex
+                cmbMunicipality.SelectedIndex =
+                                cmbMunicipality.FindStringExact(_employee.Municipality_Id.MunicipalityName);
+
+                //Evitar que se modifique el número de Cédula
+                this.mskCedula.ReadOnly = true;
+            };
+                        
+            //Cargar la información del objeto Employee cuando se recibe como parámetro en el constructor
+            if (!string.IsNullOrEmpty(_employee.IdNumber))
+            {
+                dpkBirthDay.MaxDate = DateTime.Today; // Establecer la fecha mÃ¡xima permitida para el DateTimePicker
+                this.mskCedula.Text = _employee.IdNumber;
+                this.mskInss.Text = _employee.Inss;
+                this.txtName.Text = _employee.Name;
+                this.txtSurname.Text = _employee.Surname;
+                // Convertir BirthDate de DateOnly a DateTime para asignarlo al DateTimePicker
+                this.dpkBirthDay.Value = _employee.BirthDate.ToDateTime(TimeOnly.MinValue);
+                cmbChildren.SelectedItem = _employee.NumberChildren.ToString();
+                //cmbMunicipality.SelectedItem = _employee.Municipality_Id;
+
+                this.txtEmail.Text = _employee.Email;
+                this.txtAddress.Text = _employee.Address;
+
+                cmbMunicipality.SelectedIndex =
+                                cmbMunicipality.FindStringExact(_employee.Municipality_Id.MunicipalityName);
+
+                //Evitar que se modifique el número de Cédula
+                this.mskCedula.ReadOnly = true;
+
+            }
+
+            /* -- --------------------------------------------------------------------------------------  -- */
+            /*    Acá se debe aplicar el mismo procedimiento para la carga correcta del estado cívil         */
+            /* -- --------------------------------------------------------------------------------------  -- */
+
+
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -74,7 +139,7 @@ namespace Administration_RRHH
             //Validar que los controles MskedTextBox cumplan con el formato requerido
             if (!mskCedula.MaskFull || !mskInss.MaskFull || !mskPhone.MaskFull)
                 msg = "Se identifican datos incompletos o incorrectos: Cédula, INSS o Teléfono \n";
-            
+
             if (cmbMunicipality.SelectedItem is null)
             {
                 msg = "No se ha indicado ningun Municipio valido";
@@ -82,9 +147,9 @@ namespace Administration_RRHH
             }
 
             //Validar que se haya seleccioado una fecha de nacimiento válida
-            if (!(_employee.ValidateBirthDate()))
+            if (!_employee.ValidateBirthDate())
             {
-                msg +=  "La fecha de nacimiento no es válida. Asegúrese de que el empleado " +
+                msg += "La fecha de nacimiento no es válida. Asegúrese de que el empleado " +
                         "tenga al menos 18 años y que la fecha no sea futura.";
                 dpkBirthDay.Focus(); // Establecer el foco en el DateTimePicker para que el usuario lo corrija
             }
@@ -92,7 +157,7 @@ namespace Administration_RRHH
             // Si hay errores de validación, mostrar mensaje y salir
             if (!string.IsNullOrEmpty(msg))
             {
-                MessageBox.Show(msg, "Validación de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(msg, "Información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -116,25 +181,34 @@ namespace Administration_RRHH
                 };
 
                 EmployeeBusiness employeeBusiness = new EmployeeBusiness(newEmployee); //Inicializar con el objeto actual
-                int result = employeeBusiness.AddEmployee();
+                int result = 0;
+                //!string.IsNullOrEmpty(_employee.IdNumber)
+                if (string.IsNullOrEmpty(_employee.IdNumber))
+                {   // Llamar al método para agregar un nuevo empleado
+                    result = employeeBusiness.AddEmployee();
+                }
+                else
+                {   // Llamar al método para actualizar un empleado existente
+                    result = employeeBusiness.UpdateEmployee(_employee.IdNumber);
+                }
 
                 //Validar el resultado del registro
                 if (result > 0)
                 {
-                    MessageBox.Show("El nuevo Empleado fue registrado exitosamente.", "Operación Exitosa",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    MessageBox.Show("Los Datos del Empleado se han " +
+                                    "procesado exitosamente.", "Operación Exitosa",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     //Limpiar los campos después del registro exitoso
                     clearInputs();
                 }
             }
             catch (Exception logic)
             {
-                MessageBox.Show($"Ocurrió un error al registrar el Empleado: {logic.Message}", "Error",
+                MessageBox.Show($"Ocurrió un error al procesar datos del Empleado: {logic.Message}", "Registro Fallido",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }//End try-catch
         }
-
-
+               
     }//end class
 }//end namespace

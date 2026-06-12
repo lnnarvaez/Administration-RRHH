@@ -22,10 +22,8 @@ namespace Administration_RRHH.Services.Persistence
         /// <param name="query">Consulta SQL Parametrizada</param>
         /// <param name="parameters">Parámetros SQL (previene inyección de SQL)</param>
         /// <returns>SqlDataReader  con los resultados</returns>
-        public SqlDataReader ExecuteSelect (string query, SqlParameter[] parameters = null)
+        public SqlDataReader ExecuteSelect (string query, SqlParameter[]? parameters = null)
         {
-            DataTable result = new DataTable();
-
             try
 
             {
@@ -45,13 +43,41 @@ namespace Administration_RRHH.Services.Persistence
             catch (Exception ex)
             {
                 CloseConnection(); // Asegurar que la conexión se cierre en caso de error
-                throw new Exception($"Error al intentar obtener resultados", ex);
+                throw new Exception($"Dato o valor inválido: " + ex.Message, ex);
             }
 
+        }// end of ExecuteSelect
 
-            }// end of ExecuteSelect
+        public SqlDataReader ExecuteStoredProcedure(string procedureName, SqlParameter[]? parameters = null)
+        {
+            
+            try
 
-        public bool IsDuplicate (string query, SqlParameter[] parameters = null)
+            {
+                OpenConnection();
+
+                _command = new SqlCommand(procedureName,_connection)
+                {
+                    CommandType = CommandType.StoredProcedure,
+                };
+
+                //Validar si se encuentran parametros para agregar a la consulta
+                if (parameters is not null)
+                    _command.Parameters.AddRange(parameters);
+
+                return _command.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+            catch (Exception ex)
+            {
+                CloseConnection(); // Asegurar que la conexión se cierre en caso de error
+                throw new Exception($"Dato o valor inválido: " + ex.Message, ex);
+            }            
+        }
+
+
+
+
+        public bool IsDuplicate (string query, SqlParameter[]? parameters = null)
         {
             try
             {

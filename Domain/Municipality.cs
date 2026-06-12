@@ -172,7 +172,34 @@ namespace Administration_RRHH.Domain
             return municipalitySelected ;
         }
 
-
+        public Municipality GetMunicipalityById(int municipalityId)
+        {
+            // Lógica para obtener un municipio por su ID desde la base de datos
+            string sql = @"SELECT Municipality_id,
+                           MunicipalityCode,
+                           MunicipalityName,
+                           Enable
+                           FROM Municipality WHERE Municipality_id = @MunicipalityId;";
+            using SelectQuery select = new SelectQuery();
+            SqlParameter[] parameters = {
+                new SqlParameter("@MunicipalityId", SqlDbType.Int) { Value = municipalityId }
+            };
+            using SqlDataReader reader = select.ExecuteSelect(sql, parameters);
+            if (reader.Read())
+            {
+                return new Municipality
+                {
+                    MunicipalityId = reader.GetInt32(0),
+                    MunicipalityCode = reader.GetString(1),
+                    MunicipalityName = reader.GetString(2),
+                    IsEnable = reader.GetBoolean(3)
+                };
+            }
+            else
+            {
+                throw new Exception("Municipio no encontrado");
+            }
+        }
         #endregion
     }//end class
 } //end namespace

@@ -1,82 +1,171 @@
 ﻿using Administration_RRHH.Domain;
 using Administration_RRHH.Services.BusinessLogic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Administration_RRHH.UI.Catalogs
 {
     public partial class EmployeeListForm : Form
     {
+        //Definir una lista de empleados para mostrar en el DataGridView
+        //List<Employee> employeeList;
+
+        private Employee _employeeSelect;
+        private List<Employee> _employees;
+
         public EmployeeListForm()
         {
             InitializeComponent();
+            _employeeSelect = new Employee();
+            _employees = new List<Employee>();
         }
 
         private void FrmListEmployee_Load(object sender, EventArgs e)
+        {
+            LoadEmployees();
+        }
+
+        private void LoadEmployees()
         {
             //Comunicar con la clase intermedia para obtener la lista de regiones y mostrarla en el DataGridView
             try
             {
                 //crear una instancia de la clase lógica de negocio
-                EmployeeBusiness employeeList = new EmployeeBusiness(); 
+                EmployeeBusiness employeeList = new EmployeeBusiness();
 
                 //Indicar que no se autogeneren las columnas, ya que se van a crear manualmente                
                 dgListEmployee.AutoGenerateColumns = false;
 
+                _employees = employeeList.ListEmployees();
+                dgListEmployee.DataSource = _employees; //llenar el DataGridView con la lista de empleados
                 //indicar que la columna se llene con el valor de la propiedad Employee
                 colIdNumber.DataPropertyName = "IdNumber";
-                colInss.DataPropertyName = "Inns";
-                colNames.DataPropertyName = "Names";
+                colInss.DataPropertyName = "Inss";
+                colNames.DataPropertyName = "Name";
                 colSurname.DataPropertyName = "Surname";
                 colPhone.DataPropertyName = "Phone";
                 colEmail.DataPropertyName = "Email";
-                
-                dgListEmployee.DataSource = employeeList.ListEmployees(); //llenar el DataGridView con la lista de empleados
-                                                                          
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar las Empleaddos: " + ex.Message);
+                MessageBox.Show("Error al cargar registro de Empleados: " + ex.Message, "Datos no Accesibles",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }//end try
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string clave = mskIdNumber.Text?.Trim() ?? string.Empty;
-            if (string.IsNullOrEmpty(clave))
+            if (!mskIdNumber.MaskCompleted)
             {
-                MessageBox.Show("Introduzca una cédula para buscar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Introduzca un número de cédula para aplicar búsqueda.", "Datos Incompletos",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Intentar obtener la fuente original (si previamente guardaste la original en Tag, úsala)
-            object source = dgListEmployee.Tag ?? dgListEmployee.DataSource;
+            string idNumber = mskIdNumber.Text.Trim();
+            Employee? employee = _employees
+                .FirstOrDefault(e => string.Equals(e.IdNumber, idNumber, StringComparison.OrdinalIgnoreCase));
 
-            // Si es BindingSource, sacamos su DataSource real
-            if (source is BindingSource bs) source = bs.DataSource;
-
-            // Caso: DataTable
-            if (source is DataTable dt)
+            if (employee is null)
             {
-                // Filtrar por columna "colCedula" (escapar comillas simples)
-                string safe = clave.Replace("'", "''");
-                DataRow[] rows = dt.Select($"colCedula = '{safe}'");
-                var filtered = dt.Clone();
-                foreach (var r in rows) filtered.ImportRow(r);
-                dgListEmployee.DataSource = filtered;
+                MessageBox.Show("No se encontró un empleado con la cédula indicada.", "Empleado no encontrado",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mskIdNumber.Clear(); //Aplicar limpieza del campo para que el usuario pueda ingresar una nueva cédula
+                mskIdNumber.Focus(); //Regresar el foco al campo de búsqueda para que el usuario pueda corregir la entrada
                 return;
             }
 
-           
+            dgListEmployee.DataSource = new List<Employee> { employee };
+            dgListEmployee.ClearSelection();
+            dgListEmployee.Rows[0].Selected = true;
+            dgListEmployee.CurrentCell = dgListEmployee.Rows[0].Cells[0];
+            _employeeSelect = employee;
+        }
 
-            MessageBox.Show("No se pudo filtrar: tipo de origen desconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //Cargar formulario con la visualización de los datos del empleado seleccionado para su edición
+            FrmEmployee emplEdit = new FrmEmployee(_employeeSelect);
+            //Buscar el centro de la pantalla para mostrar el formulario modal
+            emplEdit.StartPosition = FormStartPosition.CenterScreen;
+            this.Close(); //Ocultar el formulario actual
+            emplEdit.ShowDialog();
+        }
+
+        private void dgListEmployee_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (dgListEmployee.CurrentRow != null)
+            {
+                Municipality m = new Municipality(); //Aplicar para identificar el objeto municipio
+                
+                _employeeSelect = (Employee)dgListEmployee.CurrentRow.DataBoundItem;
+
+                _employeeSelect.Municipality_Id = m.GetMunicipalityById(_employeeSelect.Municipality_Id.MunicipalityId);
+
+                // Repetir procedimiento para recuperar el objeto MaritalStatus
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún empleado.", "Empleado Pendiente",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //Verificar si hay alguna celda seleccionada en el DataGridView
+            if (dgListEmployee.CurrentRow != null)
+            {
+                _employeeSelect = (Employee)dgListEmployee.CurrentRow.DataBoundItem;
+                //Mensaje de Advertencia para confirmación de eliminación del registro
+                DialogResult result = MessageBox.Show($"¿Está seguro de eliminar el empleado con cédula " +
+                                                      $"{_employeeSelect.IdNumber}?", "Confirmar Eliminación",
+                                                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                //Si el usuario confirma la eliminación, proceder a eliminar el registro
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        EmployeeBusiness employeeBusiness = new EmployeeBusiness();
+                        int rows = employeeBusiness.DeleteEmployee(_employeeSelect.IdNumber);
+
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("El Empleado ha sido dado de baja exitosamente.", "Eliminación Exitosa",
+                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadEmployees();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró un empleado para eliminar.", "Empleado no encontrado",
+                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al eliminar empleado: " + ex.Message, "Datos no Accesibles",
+                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose(); //Cerrar el formulario actual
+        }
+
+        private void btnCreateEmployee_Click(object sender, EventArgs e)
+        {
+            //Definir una instancia de la clase FrmEmployee para mostrar el formulario de creación de un nuevo empleado
+            FrmEmployee EmployeView = new FrmEmployee();
+
+            //Buscar el centro de la pantalla para mostrar el formulario modal
+            EmployeView.StartPosition = FormStartPosition.CenterScreen;
+
+            this.Close(); //Cerrar el formulario actual para mostrar el formulario de creación de un nuevo empleado
+            EmployeView.ShowDialog();             
+
         }
     }//end class
 }//end namespace
